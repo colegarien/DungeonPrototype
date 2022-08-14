@@ -78,7 +78,7 @@ namespace DungeonPrototype
         public int DestinationW { get; set; } = 0;
         public int DestinationH { get; set; } = 0;
 
-        public virtual Rectangle GetSource()
+        public virtual Rectangle GetSource(Dude owner)
         {
             return new Rectangle(0, 0, 0, 0);
         }
@@ -91,7 +91,7 @@ namespace DungeonPrototype
         public int SourceW { get; set; } = 0;
         public int SourceH { get; set; } = 0;
 
-        public override Rectangle GetSource()
+        public override Rectangle GetSource(Dude owner)
         {
             return new Rectangle(SourceLeft, SourceTop, SourceW, SourceH);
         }
@@ -102,7 +102,7 @@ namespace DungeonPrototype
         public AnimationFrame[] Frames { get; set; }
         public int currentFrame = 0;
 
-        public void Tick()
+        public virtual void Tick()
         {
             if (Frames == null || Frames.Length == 0)
                 return;
@@ -112,7 +112,7 @@ namespace DungeonPrototype
                 currentFrame = 0;
         }
 
-        public void Draw(SpriteBatch sb, Texture2D sheet, int x, int y, float rotation)
+        public virtual void Draw(Dude owner, SpriteBatch sb, Texture2D sheet, int x, int y, float rotation)
         {
             if (Frames == null || Frames.Length == 0)
                 return;
@@ -121,10 +121,57 @@ namespace DungeonPrototype
             var finalRotation = (frame.AbsoluteRotation ? 0f : rotation) + frame.Rotation;
             var spriteEffectFlags = (frame.FlipHorizontally ? SpriteEffects.FlipHorizontally : SpriteEffects.None) | (frame.FlipVertically ? SpriteEffects.FlipVertically : SpriteEffects.None);
 
-            var source = frame.GetSource();
+            var source = frame.GetSource(owner);
             sb.Draw(sheet, new Rectangle(x + frame.RelativeX, y + frame.RelativeY, frame.DestinationW, frame.DestinationW), source, Color.White, finalRotation, new Vector2(frame.OriginOffsetX, frame.OriginOffsetY), spriteEffectFlags, 0);
         }
     }
+
+    class ItertativeAnimationClip : AnimationClip
+    {
+        public int VerticalFrames { get; set; } = 0;
+        public int HorizontalFrames { get; set; } = 0;
+        public int TotalFrames { get; set; } = 0;
+
+        public AnimationFrame BasicFrame { get; set; }
+
+        public override void Tick()
+        {
+            if (BasicFrame == null || TotalFrames == 0 || VerticalFrames == 0 || HorizontalFrames == 0)
+                return;
+
+            currentFrame++;
+            if (currentFrame >= TotalFrames)
+                currentFrame = 0;
+        }
+
+        public override void Draw(Dude owner, SpriteBatch sb, Texture2D sheet, int x, int y, float rotation)
+        {
+            if (BasicFrame == null || TotalFrames == 0 || VerticalFrames == 0 || HorizontalFrames == 0)
+                return;
+
+            var frame = BasicFrame;
+            var finalRotation = (frame.AbsoluteRotation ? 0f : rotation) + frame.Rotation;
+            var spriteEffectFlags = (frame.FlipHorizontally ? SpriteEffects.FlipHorizontally : SpriteEffects.None) | (frame.FlipVertically ? SpriteEffects.FlipVertically : SpriteEffects.None);
+
+            var source = frame.GetSource(owner);
+            source.X += (currentFrame % HorizontalFrames) * source.Width;
+            source.Y += (currentFrame % VerticalFrames) * source.Height;
+
+            sb.Draw(sheet, new Rectangle(x + frame.RelativeX, y + frame.RelativeY, frame.DestinationW, frame.DestinationW), source, Color.White, finalRotation, new Vector2(frame.OriginOffsetX, frame.OriginOffsetY), spriteEffectFlags, 0);
+        }
+    }
+
+    class AnimationState
+    {
+        public string Name { get; set; } = "";
+
+        public string BodyKey { get; set; } = "generic";
+        public string HatKey { get; set; } = "";
+        public string ArmorKey { get; set; } = "";
+        public string WeaponKey { get; set; } = "";
+        public string WeaponEffectKey { get; set; } = "basic-slash";
+    }
+
 
     class Animator
     {
@@ -132,40 +179,20 @@ namespace DungeonPrototype
 
         public static Dictionary<string, AnimationClip> genericClipMap = new Dictionary<string, AnimationClip>()
         {
-            {"body_white_idle_east", new AnimationClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 3*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }
+            {"body_white_idle_east", new ItertativeAnimationClip() {
+                HorizontalFrames = 1,
+                VerticalFrames = 3,
+                TotalFrames = 3,
+                BasicFrame = new ManualFrame() {
+                    RelativeX = 0,
+                    RelativeY = 0,
+                    DestinationW = W,
+                    DestinationH = W,
+                    SourceTop = 1*W,
+                    SourceLeft = 4*W,
+                    SourceW = W,
+                    SourceH = W
+               }
             }},
             {"body_white_idle_south", new AnimationClip() {
                 Frames = new AnimationFrame[]
@@ -1293,12 +1320,12 @@ namespace DungeonPrototype
             {
                 if (genericClipMap.ContainsKey(animationWeaponKey))
                 {
-                    genericClipMap[animationWeaponKey].Draw(sb, sheet, x, y, rotation);
+                    genericClipMap[animationWeaponKey].Draw(owner, sb, sheet, x, y, rotation);
                 }
 
                 if (genericClipMap.ContainsKey(animationWeaponEffectKey))
                 {
-                    genericClipMap[animationWeaponEffectKey].Draw(sb, sheet, x, y, rotation);
+                    genericClipMap[animationWeaponEffectKey].Draw(owner, sb, sheet, x, y, rotation);
                 }
             }
 
@@ -1306,19 +1333,19 @@ namespace DungeonPrototype
             var animationBodyKey = $"body_{owner.body}_{state}_{direction}";
             if (genericClipMap.ContainsKey(animationBodyKey))
             {
-                genericClipMap[animationBodyKey].Draw(sb, sheet, x, y, rotation);
+                genericClipMap[animationBodyKey].Draw(owner, sb, sheet, x, y, rotation);
             }
 
             var animationArmorKey = $"armor_{owner.armor}_{state}_{direction}";
             if (genericClipMap.ContainsKey(animationArmorKey))
             {
-                genericClipMap[animationArmorKey].Draw(sb, sheet, x, y, rotation);
+                genericClipMap[animationArmorKey].Draw(owner, sb, sheet, x, y, rotation);
             }
 
             var animationHatKey = $"hat_{owner.hat}_{state}_{direction}";
             if (genericClipMap.ContainsKey(animationHatKey))
             {
-                genericClipMap[animationHatKey].Draw(sb, sheet, x, y, rotation);
+                genericClipMap[animationHatKey].Draw(owner, sb, sheet, x, y, rotation);
             }
 
 
@@ -1326,12 +1353,12 @@ namespace DungeonPrototype
             {
                 if (genericClipMap.ContainsKey(animationWeaponKey))
                 {
-                    genericClipMap[animationWeaponKey].Draw(sb, sheet, x, y, rotation);
+                    genericClipMap[animationWeaponKey].Draw(owner, sb, sheet, x, y, rotation);
                 }
 
                 if (genericClipMap.ContainsKey(animationWeaponEffectKey))
                 {
-                    genericClipMap[animationWeaponEffectKey].Draw(sb, sheet, x, y, rotation);
+                    genericClipMap[animationWeaponEffectKey].Draw(owner, sb, sheet, x, y, rotation);
                 }
             }
         }
