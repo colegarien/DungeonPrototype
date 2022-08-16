@@ -16,6 +16,11 @@ namespace DungeonPrototype.Animation
 
         public bool FlipHorizontally = false;
         public bool FlipVertically = false;
+
+        public FrameTransform ShallowCopy()
+        {
+            return (FrameTransform)this.MemberwiseClone();
+        }
     }
 
     class FrameSource
@@ -24,6 +29,11 @@ namespace DungeonPrototype.Animation
         public int SourceLeft { get; set; } = 0;
         public int SourceW { get; set; } = 0;
         public int SourceH { get; set; } = 0;
+
+        public FrameSource ShallowCopy()
+        {
+            return (FrameSource)this.MemberwiseClone();
+        }
     }
 
     class AnimationFrame
@@ -33,11 +43,6 @@ namespace DungeonPrototype.Animation
         public virtual FrameSource GetSource(Dude owner)
         {
             return new FrameSource();
-        }
-
-        public AnimationFrame ShallowCopy()
-        {
-            return (AnimationFrame)this.MemberwiseClone();
         }
     }
 

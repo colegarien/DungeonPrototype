@@ -51,14 +51,14 @@ namespace DungeonPrototype.Animation
             Frames[0] = rootFrame;
             for(var index = 1; index < Frames.Length; index++)
             {
-                var newFrame = (ManualFrame)rootFrame.ShallowCopy();
-                newFrame.Source = new FrameSource()
+                var newFrame = new ManualFrame
                 {
-                    SourceLeft = rootFrame.Source.SourceLeft + (index % horizontalFrames) * rootFrame.Source.SourceW,
-                    SourceTop = rootFrame.Source.SourceTop + (index % verticalFrames) * rootFrame.Source.SourceH,
-                    SourceW = rootFrame.Source.SourceW,
-                    SourceH = rootFrame.Source.SourceH,
+                    Transform = rootFrame.Transform.ShallowCopy(),
+                    Source = rootFrame.Source.ShallowCopy()
                 };
+
+                newFrame.Source.SourceLeft += (index % horizontalFrames) * newFrame.Source.SourceW;
+                newFrame.Source.SourceTop += (index % verticalFrames) * newFrame.Source.SourceH;
 
                 Frames[index] = newFrame;
             }
