@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using DungeonPrototype.Animation;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
@@ -61,129 +62,12 @@ namespace DungeonPrototype
         }
     }
 
-
-    class AnimationFrame
-    {
-        public int RelativeX { get; set; } = 0;
-        public int RelativeY { get; set; } = 0;
-
-        public bool AbsoluteRotation = true;
-        public float Rotation { get; set; } = 0;
-        public float OriginOffsetX { get; set; } = 0;
-        public float OriginOffsetY { get; set; } = 0;
-
-        public bool FlipHorizontally = false;
-        public bool FlipVertically = false;
-
-        public int DestinationW { get; set; } = 0;
-        public int DestinationH { get; set; } = 0;
-
-        public virtual Rectangle GetSource(Dude owner)
-        {
-            return new Rectangle(0, 0, 0, 0);
-        }
-    }
-
-    class ManualFrame : AnimationFrame
-    {
-        public int SourceTop { get; set; } = 0;
-        public int SourceLeft { get; set; } = 0;
-        public int SourceW { get; set; } = 0;
-        public int SourceH { get; set; } = 0;
-
-        public override Rectangle GetSource(Dude owner)
-        {
-            return new Rectangle(SourceLeft, SourceTop, SourceW, SourceH);
-        }
-    }
-
-    class AnimationClip
-    {
-        public AnimationFrame[] Frames { get; set; }
-        public int currentFrame = 0;
-
-        public virtual void Tick()
-        {
-            if (Frames == null || Frames.Length == 0)
-                return;
-
-            currentFrame++;
-            if (currentFrame >= Frames.Length)
-                currentFrame = 0;
-        }
-
-        public virtual void Draw(Dude owner, SpriteBatch sb, Texture2D sheet, int x, int y, float rotation)
-        {
-            if (Frames == null || Frames.Length == 0)
-                return;
-
-            var frame = Frames[currentFrame];
-            var finalRotation = (frame.AbsoluteRotation ? 0f : rotation) + frame.Rotation;
-            var spriteEffectFlags = (frame.FlipHorizontally ? SpriteEffects.FlipHorizontally : SpriteEffects.None) | (frame.FlipVertically ? SpriteEffects.FlipVertically : SpriteEffects.None);
-
-            var source = frame.GetSource(owner);
-            sb.Draw(sheet, new Rectangle(x + frame.RelativeX, y + frame.RelativeY, frame.DestinationW, frame.DestinationW), source, Color.White, finalRotation, new Vector2(frame.OriginOffsetX, frame.OriginOffsetY), spriteEffectFlags, 0);
-        }
-    }
-
-    class ItertativeAnimationClip : AnimationClip
-    {
-        public int VerticalFrames { get; set; } = 0;
-        public int HorizontalFrames { get; set; } = 0;
-        public int TotalFrames { get; set; } = 0;
-
-        public AnimationFrame BasicFrame { get; set; }
-
-        public override void Tick()
-        {
-            if (BasicFrame == null || TotalFrames == 0 || VerticalFrames == 0 || HorizontalFrames == 0)
-                return;
-
-            currentFrame++;
-            if (currentFrame >= TotalFrames)
-                currentFrame = 0;
-        }
-
-        public override void Draw(Dude owner, SpriteBatch sb, Texture2D sheet, int x, int y, float rotation)
-        {
-            if (BasicFrame == null || TotalFrames == 0 || VerticalFrames == 0 || HorizontalFrames == 0)
-                return;
-
-            var frame = BasicFrame;
-            var finalRotation = (frame.AbsoluteRotation ? 0f : rotation) + frame.Rotation;
-            var spriteEffectFlags = (frame.FlipHorizontally ? SpriteEffects.FlipHorizontally : SpriteEffects.None) | (frame.FlipVertically ? SpriteEffects.FlipVertically : SpriteEffects.None);
-
-            var source = frame.GetSource(owner);
-            source.X += (currentFrame % HorizontalFrames) * source.Width;
-            source.Y += (currentFrame % VerticalFrames) * source.Height;
-
-            sb.Draw(sheet, new Rectangle(x + frame.RelativeX, y + frame.RelativeY, frame.DestinationW, frame.DestinationW), source, Color.White, finalRotation, new Vector2(frame.OriginOffsetX, frame.OriginOffsetY), spriteEffectFlags, 0);
-        }
-    }
-
-    class AnimationState
-    {
-        public string Name { get; set; } = "";
-
-        public string BodyKey { get; set; } = "generic";
-        public string HatKey { get; set; } = "";
-        public string ArmorKey { get; set; } = "";
-        public string WeaponKey { get; set; } = "";
-        public string WeaponEffectKey { get; set; } = "basic-slash";
-    }
-
-
     class Animator
     {
         public const int W = 32;
-
-        public static Dictionary<string, AnimationClip> genericClipMap = new Dictionary<string, AnimationClip>()
+        public static Dictionary<string, Clip> genericClipMap = new Dictionary<string, Clip>()
         {
-            {"body_white_idle_east", new ItertativeAnimationClip() {
-                HorizontalFrames = 1,
-                VerticalFrames = 3,
-                TotalFrames = 3,
-                BasicFrame = new ManualFrame() {
+            {"body_white_idle_east", new LinearClip(new ManualFrame() {
                     RelativeX = 0,
                     RelativeY = 0,
                     DestinationW = W,
@@ -192,9 +76,8 @@ namespace DungeonPrototype
                     SourceLeft = 4*W,
                     SourceW = W,
                     SourceH = W
-               }
-            }},
-            {"body_white_idle_south", new AnimationClip() {
+               }, 1, 3)},
+            {"body_white_idle_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -229,7 +112,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"body_white_idle_west", new AnimationClip() {
+            {"body_white_idle_west", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -264,7 +147,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"body_white_idle_north", new AnimationClip() {
+            {"body_white_idle_north", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -299,7 +182,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"body_red_idle_east", new AnimationClip() {
+            {"body_red_idle_east", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -334,7 +217,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"body_red_idle_south", new AnimationClip() {
+            {"body_red_idle_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -369,7 +252,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"body_red_idle_west", new AnimationClip() {
+            {"body_red_idle_west", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -404,7 +287,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"body_red_idle_north", new AnimationClip() {
+            {"body_red_idle_north", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -439,7 +322,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"armor_cyan_idle_east", new AnimationClip() {
+            {"armor_cyan_idle_east", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -454,7 +337,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"armor_cyan_idle_south", new AnimationClip() {
+            {"armor_cyan_idle_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -469,7 +352,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"armor_cyan_idle_west", new AnimationClip() {
+            {"armor_cyan_idle_west", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -484,7 +367,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"armor_cyan_idle_north", new AnimationClip() {
+            {"armor_cyan_idle_north", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -499,7 +382,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"hat_green_idle_east", new AnimationClip() {
+            {"hat_green_idle_east", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -534,7 +417,7 @@ namespace DungeonPrototype
                     },
                 }
             }},
-            {"hat_green_idle_south", new AnimationClip() {
+            {"hat_green_idle_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -569,7 +452,7 @@ namespace DungeonPrototype
                     },
                 }
             }},
-            {"hat_green_idle_west", new AnimationClip() {
+            {"hat_green_idle_west", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -604,7 +487,7 @@ namespace DungeonPrototype
                     },
                 }
             }},
-            {"hat_green_idle_north", new AnimationClip() {
+            {"hat_green_idle_north", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -639,7 +522,7 @@ namespace DungeonPrototype
                     },
                 }
             }},
-            {"weapon_pink-sword_attack_east", new AnimationClip() {
+            {"weapon_pink-sword_attack_east", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -696,7 +579,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"weapon_pink-sword_attack_south", new AnimationClip() {
+            {"weapon_pink-sword_attack_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -753,7 +636,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"weapon_pink-sword_attack_west", new AnimationClip() {
+            {"weapon_pink-sword_attack_west", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -814,7 +697,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"weapon_pink-sword_attack_north", new AnimationClip() {
+            {"weapon_pink-sword_attack_north", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -875,7 +758,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"body_white_attack_east", new AnimationClip() {
+            {"body_white_attack_east", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -920,7 +803,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"body_white_attack_south", new AnimationClip() {
+            {"body_white_attack_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -965,7 +848,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"body_white_attack_west", new AnimationClip() {
+            {"body_white_attack_west", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -1010,7 +893,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"body_white_attack_north", new AnimationClip() {
+            {"body_white_attack_north", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -1055,7 +938,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"weapon-effect_basic-slash_attack_east", new AnimationClip() {
+            {"weapon-effect_basic-slash_attack_east", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -1097,7 +980,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"weapon-effect_basic-slash_attack_south", new AnimationClip() {
+            {"weapon-effect_basic-slash_attack_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -1139,7 +1022,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"weapon-effect_basic-slash_attack_west", new AnimationClip() {
+            {"weapon-effect_basic-slash_attack_west", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -1181,7 +1064,7 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"weapon-effect_basic-slash_attack_north", new AnimationClip() {
+            {"weapon-effect_basic-slash_attack_north", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
@@ -1224,20 +1107,27 @@ namespace DungeonPrototype
                 }
             }},
         };
-
         public static float perFrameTime = 100f; // ~10fps
+
         public float curFrameTime = 0;
-
         public string state = "idle";
-
+        public Dictionary<string, int> frameIndexes = new Dictionary<string, int>();
 
 
         public void Update(Dude owner, GameTime gameTime)
         {
-            if (owner.IsAttacking)
+            if (owner.IsAttacking && state != "attack")
+            {
                 state = "attack";
-            else
+                // reset all frame counters
+                frameIndexes.Clear();
+            }
+            else if (!owner.IsAttacking && state != "idle")
+            {
                 state = "idle";
+                // reset all frame counters
+                frameIndexes.Clear();
+            }
 
             curFrameTime += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (curFrameTime >= perFrameTime)
@@ -1264,31 +1154,31 @@ namespace DungeonPrototype
                 var animationBodyKey = $"body_{owner.body}_{state}_{direction}";
                 if (genericClipMap.ContainsKey(animationBodyKey))
                 {
-                    genericClipMap[animationBodyKey].Tick();
+                    frameIndexes[animationBodyKey] = genericClipMap[animationBodyKey].Tick(frameIndexes.GetValueOrDefault(animationBodyKey, 0));
                 }
 
                 var animationArmorKey = $"armor_{owner.armor}_{state}_{direction}";
                 if (genericClipMap.ContainsKey(animationArmorKey))
                 {
-                    genericClipMap[animationArmorKey].Tick();
+                    frameIndexes[animationArmorKey] = genericClipMap[animationArmorKey].Tick(frameIndexes.GetValueOrDefault(animationArmorKey, 0));
                 }
 
                 var animationHatKey = $"hat_{owner.hat}_{state}_{direction}";
                 if (genericClipMap.ContainsKey(animationHatKey))
                 {
-                    genericClipMap[animationHatKey].Tick();
+                    frameIndexes[animationHatKey] = genericClipMap[animationHatKey].Tick(frameIndexes.GetValueOrDefault(animationHatKey, 0));
                 }
 
                 var animationWeaponKey = $"weapon_{owner.weapon}_{state}_{direction}";
                 if (genericClipMap.ContainsKey(animationWeaponKey))
                 {
-                    genericClipMap[animationWeaponKey].Tick();
+                    frameIndexes[animationWeaponKey] = genericClipMap[animationWeaponKey].Tick(frameIndexes.GetValueOrDefault(animationWeaponKey, 0));
                 }
 
                 var animationWeaponEffectKey = $"weapon-effect_{owner.weapon_effect}_{state}_{direction}";
                 if (genericClipMap.ContainsKey(animationWeaponEffectKey))
                 {
-                    genericClipMap[animationWeaponEffectKey].Tick();
+                    frameIndexes[animationWeaponEffectKey] = genericClipMap[animationWeaponEffectKey].Tick(frameIndexes.GetValueOrDefault(animationWeaponEffectKey, 0));
                 }
             }
         }
@@ -1313,19 +1203,18 @@ namespace DungeonPrototype
                     break;
             }
 
-
             var animationWeaponKey = $"weapon_{owner.weapon}_{state}_{direction}";
             var animationWeaponEffectKey = $"weapon-effect_{owner.weapon_effect}_{state}_{direction}";
             if (direction == "west" || direction == "north")
             {
                 if (genericClipMap.ContainsKey(animationWeaponKey))
                 {
-                    genericClipMap[animationWeaponKey].Draw(owner, sb, sheet, x, y, rotation);
+                    DrawCurrentFrame(genericClipMap[animationWeaponKey], frameIndexes.GetValueOrDefault(animationWeaponKey, 0), owner, sb, sheet, x, y, rotation);
                 }
 
                 if (genericClipMap.ContainsKey(animationWeaponEffectKey))
                 {
-                    genericClipMap[animationWeaponEffectKey].Draw(owner, sb, sheet, x, y, rotation);
+                    DrawCurrentFrame(genericClipMap[animationWeaponEffectKey], frameIndexes.GetValueOrDefault(animationWeaponEffectKey, 0), owner, sb, sheet, x, y, rotation);
                 }
             }
 
@@ -1333,19 +1222,19 @@ namespace DungeonPrototype
             var animationBodyKey = $"body_{owner.body}_{state}_{direction}";
             if (genericClipMap.ContainsKey(animationBodyKey))
             {
-                genericClipMap[animationBodyKey].Draw(owner, sb, sheet, x, y, rotation);
+                DrawCurrentFrame(genericClipMap[animationBodyKey], frameIndexes.GetValueOrDefault(animationBodyKey, 0), owner, sb, sheet, x, y, rotation);
             }
 
             var animationArmorKey = $"armor_{owner.armor}_{state}_{direction}";
             if (genericClipMap.ContainsKey(animationArmorKey))
             {
-                genericClipMap[animationArmorKey].Draw(owner, sb, sheet, x, y, rotation);
+                DrawCurrentFrame(genericClipMap[animationArmorKey], frameIndexes.GetValueOrDefault(animationArmorKey, 0), owner, sb, sheet, x, y, rotation);
             }
 
             var animationHatKey = $"hat_{owner.hat}_{state}_{direction}";
             if (genericClipMap.ContainsKey(animationHatKey))
             {
-                genericClipMap[animationHatKey].Draw(owner, sb, sheet, x, y, rotation);
+                DrawCurrentFrame(genericClipMap[animationHatKey], frameIndexes.GetValueOrDefault(animationHatKey, 0), owner, sb, sheet, x, y, rotation);
             }
 
 
@@ -1353,14 +1242,28 @@ namespace DungeonPrototype
             {
                 if (genericClipMap.ContainsKey(animationWeaponKey))
                 {
-                    genericClipMap[animationWeaponKey].Draw(owner, sb, sheet, x, y, rotation);
+                    DrawCurrentFrame(genericClipMap[animationWeaponKey], frameIndexes.GetValueOrDefault(animationWeaponKey, 0), owner, sb, sheet, x, y, rotation);
                 }
 
                 if (genericClipMap.ContainsKey(animationWeaponEffectKey))
                 {
-                    genericClipMap[animationWeaponEffectKey].Draw(owner, sb, sheet, x, y, rotation);
+                    DrawCurrentFrame(genericClipMap[animationWeaponEffectKey], frameIndexes.GetValueOrDefault(animationWeaponEffectKey, 0), owner, sb, sheet, x, y, rotation);
                 }
             }
+        }
+
+
+        public virtual void DrawCurrentFrame(Clip clip, int frameIndex, Dude owner, SpriteBatch sb, Texture2D sheet, int x, int y, float rotation)
+        {
+            var frame = clip.GetFrame(frameIndex);
+            if (frame == null)
+                return;
+
+            var finalRotation = (frame.AbsoluteRotation ? 0f : rotation) + frame.Rotation;
+            var spriteEffectFlags = (frame.FlipHorizontally ? SpriteEffects.FlipHorizontally : SpriteEffects.None) | (frame.FlipVertically ? SpriteEffects.FlipVertically : SpriteEffects.None);
+
+            var source = frame.GetSource(owner);
+            sb.Draw(sheet, new Rectangle(x + frame.RelativeX, y + frame.RelativeY, frame.DestinationW, frame.DestinationW), source, Color.White, finalRotation, new Vector2(frame.OriginOffsetX, frame.OriginOffsetY), spriteEffectFlags, 0);
         }
 
     }
