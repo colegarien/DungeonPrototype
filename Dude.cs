@@ -322,324 +322,388 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"armor_cyan_idle_east", new FramesClip() {
+            {"armor_generic_idle_east", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new ArmorFrame() {
                         RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 6*W,
-                        SourceLeft = 0*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     }
                 }
             }},
-            {"armor_cyan_idle_south", new FramesClip() {
+            {"armor_generic_idle_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new ArmorFrame() {
                         RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 6*W,
-                        SourceLeft = 1*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     }
                 }
             }},
-            {"armor_cyan_idle_west", new FramesClip() {
+            {"armor_generic_idle_west", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new ArmorFrame() {
                         RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 6*W,
-                        SourceLeft = 2*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     }
                 }
             }},
-            {"armor_cyan_idle_north", new FramesClip() {
+            {"armor_generic_idle_north", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new ArmorFrame() {
                         RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 6*W,
-                        SourceLeft = 3*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     }
                 }
             }},
-            {"hat_green_idle_east", new FramesClip() {
+            {"hat_generic_idle_east", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -11,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -9,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                }
+            }},
+            {"hat_generic_idle_south", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -11,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -9,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                }
+            }},
+            {"hat_generic_idle_west", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -11,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -9,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                }
+            }},
+            {"hat_generic_idle_north", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -11,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -9,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                }
+            }},
+            {"armor_generic_attack_east", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new ArmorFrame() {
+                        RelativeX = 0,
+                        RelativeY = 0,
+                        DestinationW = W,
+                        DestinationH = W
+                    }
+                }
+            }},
+            {"armor_generic_attack_south", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new ArmorFrame() {
+                        RelativeX = 0,
+                        RelativeY = 0,
+                        DestinationW = W,
+                        DestinationH = W
+                    }
+                }
+            }},
+            {"armor_generic_attack_west", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new ArmorFrame() {
+                        RelativeX = 0,
+                        RelativeY = 0,
+                        DestinationW = W,
+                        DestinationH = W
+                    }
+                }
+            }},
+            {"armor_generic_attack_north", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new ArmorFrame() {
+                        RelativeX = 0,
+                        RelativeY = 0,
+                        DestinationW = W,
+                        DestinationH = W
+                    }
+                }
+            }},
+            {"hat_generic_attack_east", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new HatFrame() {
                         RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 0*W,
-                        SourceW = W,
-                        SourceH = W
                     },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -11,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 0*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -9,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 0*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                }
-            }},
-            {"hat_green_idle_south", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
+                    new HatFrame() {
                         RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 1*W,
-                        SourceW = W,
-                        SourceH = W
                     },
-                    new ManualFrame() {
+                    new HatFrame() {
                         RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 1*W,
-                        SourceW = W,
-                        SourceH = W
                     },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -9,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 1*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                }
-            }},
-            {"hat_green_idle_west", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
+                    new HatFrame() {
                         RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 2*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -11,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 2*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -9,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 2*W,
-                        SourceW = W,
-                        SourceH = W
                     },
                 }
             }},
-            {"hat_green_idle_north", new FramesClip() {
+            {"hat_generic_attack_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new HatFrame() {
                         RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 3*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
                         RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 3*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new HatFrame() {
                         RelativeX = 0,
-                        RelativeY = -9,
+                        RelativeY = -12,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 3*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
                 }
             }},
-            {"weapon_pink-sword_attack_east", new FramesClip() {
+            {"hat_generic_attack_west", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -11,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                }
+            }},
+            {"hat_generic_attack_north", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -11,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    new HatFrame() {
+                        RelativeX = 0,
+                        RelativeY = -12,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                }
+            }},
+            {"weapon_generic_attack_east", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new WeaponFrame() {
                         RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -0.78f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 19,
                         RelativeY = 21,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -0.9f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 19,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.12f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.28f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     }
                 }
             }},
-            {"weapon_pink-sword_attack_south", new FramesClip() {
+            {"weapon_generic_attack_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -1f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 19,
                         RelativeY = 21,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -1.2f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 19,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.62f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.66f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     }
                 }
             }},
-            {"weapon_pink-sword_attack_west", new FramesClip() {
+            {"weapon_generic_attack_west", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
@@ -647,13 +711,9 @@ namespace DungeonPrototype
                         OriginOffsetY = 16,
                         Rotation = 0.78f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 19,
                         RelativeY = 21,
                         AbsoluteRotation = false,
@@ -661,13 +721,9 @@ namespace DungeonPrototype
                         OriginOffsetY = 16,
                         Rotation = 0.9f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 19,
                         RelativeY = 22,
                         AbsoluteRotation = false,
@@ -675,13 +731,9 @@ namespace DungeonPrototype
                         OriginOffsetY = 16,
                         Rotation = -0.12f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
@@ -689,300 +741,48 @@ namespace DungeonPrototype
                         OriginOffsetY = 16,
                         Rotation = -0.28f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     }
                 }
             }},
-            {"weapon_pink-sword_attack_north", new FramesClip() {
+            {"weapon_generic_attack_north", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -1f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 19,
                         RelativeY = 21,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -1.2f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 19,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.62f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     },
-                    new ManualFrame() {
+                    new WeaponFrame() {
                         RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.66f,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }
-            }},
-            {"weapon_grey-dagger_attack_east", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 18,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = -0.78f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 19,
-                        RelativeY = 21,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = -0.9f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 19,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = 0.12f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 18,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = 0.28f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }
-            }},
-            {"weapon_grey-dagger_attack_south", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 18,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = -1f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 19,
-                        RelativeY = 21,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = -1.2f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 19,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = 0.62f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 18,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = 0.66f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }
-            }},
-            {"weapon_grey-dagger_attack_west", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 18,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        FlipVertically = true,
-                        OriginOffsetY = 16,
-                        Rotation = 0.78f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 19,
-                        RelativeY = 21,
-                        AbsoluteRotation = false,
-                        FlipVertically = true,
-                        OriginOffsetY = 16,
-                        Rotation = 0.9f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 19,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        FlipVertically = true,
-                        OriginOffsetY = 16,
-                        Rotation = -0.12f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 18,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        FlipVertically = true,
-                        OriginOffsetY = 16,
-                        Rotation = -0.28f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }
-            }},
-            {"weapon_grey-dagger_attack_north", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 18,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = -1f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 19,
-                        RelativeY = 21,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = -1.2f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 19,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = 0.62f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 18,
-                        RelativeY = 22,
-                        AbsoluteRotation = false,
-                        OriginOffsetY = 16,
-                        Rotation = 0.66f,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
+                        DestinationH = W
                     }
                 }
             }},
@@ -1514,246 +1314,6 @@ namespace DungeonPrototype
                     }
                 }
             }},
-            {"armor_cyan_attack_east", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 6*W,
-                        SourceLeft = 0*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }
-            }},
-            {"armor_cyan_attack_south", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 6*W,
-                        SourceLeft = 1*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }
-            }},
-            {"armor_cyan_attack_west", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 6*W,
-                        SourceLeft = 2*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }
-            }},
-            {"armor_cyan_attack_north", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 6*W,
-                        SourceLeft = 3*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }
-            }},
-            {"hat_green_attack_east", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 0*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 0*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -11,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 0*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 0*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                }
-            }},
-            {"hat_green_attack_south", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 1*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 1*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -11,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 1*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 1*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                }
-            }},
-            {"hat_green_attack_west", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 2*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 2*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -11,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 2*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 2*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                }
-            }},
-            {"hat_green_attack_north", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 3*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 3*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -11,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 3*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                    new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -12,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 4*W,
-                        SourceLeft = 3*W,
-                        SourceW = W,
-                        SourceH = W
-                    },
-                }
-            }},
         };
         public static float perFrameTime = 100f; // ~10fps
 
@@ -1806,24 +1366,32 @@ namespace DungeonPrototype
                 }
 
                 var animationArmorKey = $"armor_{owner.armor}_{state}_{direction}";
+                if (!genericClipMap.ContainsKey(animationArmorKey) && owner.armor != "")
+                    animationArmorKey = $"armor_generic_{state}_{direction}";
                 if (genericClipMap.ContainsKey(animationArmorKey))
                 {
                     frameIndexes[animationArmorKey] = genericClipMap[animationArmorKey].Tick(frameIndexes.GetValueOrDefault(animationArmorKey, 0));
                 }
 
                 var animationHatKey = $"hat_{owner.hat}_{state}_{direction}";
+                if (!genericClipMap.ContainsKey(animationHatKey) && owner.hat != "")
+                    animationHatKey = $"hat_generic_{state}_{direction}";
                 if (genericClipMap.ContainsKey(animationHatKey))
                 {
                     frameIndexes[animationHatKey] = genericClipMap[animationHatKey].Tick(frameIndexes.GetValueOrDefault(animationHatKey, 0));
                 }
 
                 var animationWeaponKey = $"weapon_{owner.weapon}_{state}_{direction}";
+                if (!genericClipMap.ContainsKey(animationWeaponKey) && owner.weapon != "")
+                    animationWeaponKey = $"weapon_generic_{state}_{direction}";
                 if (genericClipMap.ContainsKey(animationWeaponKey))
                 {
                     frameIndexes[animationWeaponKey] = genericClipMap[animationWeaponKey].Tick(frameIndexes.GetValueOrDefault(animationWeaponKey, 0));
                 }
 
                 var animationWeaponEffectKey = $"weapon-effect_{owner.weapon_effect}_{state}_{direction}";
+                if (!genericClipMap.ContainsKey(animationWeaponEffectKey) && owner.weapon_effect != "")
+                    animationWeaponEffectKey = $"weapon-effect_generic_{state}_{direction}";
                 if (genericClipMap.ContainsKey(animationWeaponEffectKey))
                 {
                     frameIndexes[animationWeaponEffectKey] = genericClipMap[animationWeaponEffectKey].Tick(frameIndexes.GetValueOrDefault(animationWeaponEffectKey, 0));
@@ -1852,7 +1420,11 @@ namespace DungeonPrototype
             }
 
             var animationWeaponKey = $"weapon_{owner.weapon}_{state}_{direction}";
+            if (!genericClipMap.ContainsKey(animationWeaponKey) && owner.weapon != "")
+                animationWeaponKey = $"weapon_generic_{state}_{direction}";
             var animationWeaponEffectKey = $"weapon-effect_{owner.weapon_effect}_{state}_{direction}";
+            if (!genericClipMap.ContainsKey(animationWeaponEffectKey) && owner.weapon_effect != "")
+                animationWeaponEffectKey = $"weapon-effect_generic_{state}_{direction}";
             if (direction == "west" || direction == "north")
             {
                 if (genericClipMap.ContainsKey(animationWeaponKey))
@@ -1874,12 +1446,16 @@ namespace DungeonPrototype
             }
 
             var animationArmorKey = $"armor_{owner.armor}_{state}_{direction}";
+            if (!genericClipMap.ContainsKey(animationArmorKey) && owner.armor != "")
+                animationArmorKey = $"armor_generic_{state}_{direction}";
             if (genericClipMap.ContainsKey(animationArmorKey))
             {
                 DrawCurrentFrame(genericClipMap[animationArmorKey], frameIndexes.GetValueOrDefault(animationArmorKey, 0), owner, sb, sheet, x, y, rotation);
             }
 
             var animationHatKey = $"hat_{owner.hat}_{state}_{direction}";
+            if (!genericClipMap.ContainsKey(animationHatKey) && owner.hat != "")
+                animationHatKey = $"hat_generic_{state}_{direction}";
             if (genericClipMap.ContainsKey(animationHatKey))
             {
                 DrawCurrentFrame(genericClipMap[animationHatKey], frameIndexes.GetValueOrDefault(animationHatKey, 0), owner, sb, sheet, x, y, rotation);

@@ -43,4 +43,47 @@ namespace DungeonPrototype.Animation
         }
     }
 
+    class HatFrame : AnimationFrame
+    {
+        public override Rectangle GetSource(Dude owner)
+        {
+            switch (owner.hat) {
+                case "green":
+                    return new Rectangle(owner.Direction * 32, 4 * 32, 32, 32);
+                default:
+                    return new Rectangle(0,0,0,0);
+            }
+        }
+    }
+
+    class WeaponFrame : AnimationFrame
+    {
+        public override Rectangle GetSource(Dude owner)
+        {
+            switch (owner.weapon)
+            {
+                case "pink-sword":
+                    return new Rectangle(6 * 32, 4 * 32, 32, 32);
+                case "grey-dagger":
+                    return new Rectangle(4 * 32, 4 * 32, 32, 32);
+                default:
+                    return new Rectangle(0, 0, 0, 0);
+            }
+        }
+    }
+
+    class ArmorFrame : AnimationFrame
+    {
+        public override Rectangle GetSource(Dude owner)
+        {
+            switch (owner.armor)
+            {
+                case "cyan":
+                    return new Rectangle(owner.Direction * 32, 6 * 32, 32, 32);
+                default:
+                    return new Rectangle(0, 0, 0, 0);
+            }
+        }
+    }
+
 }
