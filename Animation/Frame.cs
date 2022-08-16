@@ -2,11 +2,12 @@
 
 namespace DungeonPrototype.Animation
 {
-
-    class AnimationFrame
+    class FrameTransform
     {
         public int RelativeX { get; set; } = 0;
         public int RelativeY { get; set; } = 0;
+        public int DestinationW { get; set; } = 0;
+        public int DestinationH { get; set; } = 0;
 
         public bool AbsoluteRotation = true;
         public float Rotation { get; set; } = 0;
@@ -15,13 +16,23 @@ namespace DungeonPrototype.Animation
 
         public bool FlipHorizontally = false;
         public bool FlipVertically = false;
+    }
 
-        public int DestinationW { get; set; } = 0;
-        public int DestinationH { get; set; } = 0;
+    class FrameSource
+    {
+        public int SourceTop { get; set; } = 0;
+        public int SourceLeft { get; set; } = 0;
+        public int SourceW { get; set; } = 0;
+        public int SourceH { get; set; } = 0;
+    }
 
-        public virtual Rectangle GetSource(Dude owner)
+    class AnimationFrame
+    {
+        public FrameTransform Transform { get; set; }
+
+        public virtual FrameSource GetSource(Dude owner)
         {
-            return new Rectangle(0, 0, 0, 0);
+            return new FrameSource();
         }
 
         public AnimationFrame ShallowCopy()
@@ -32,56 +43,78 @@ namespace DungeonPrototype.Animation
 
     class ManualFrame : AnimationFrame
     {
-        public int SourceTop { get; set; } = 0;
-        public int SourceLeft { get; set; } = 0;
-        public int SourceW { get; set; } = 0;
-        public int SourceH { get; set; } = 0;
+        public FrameSource Source { get; set; }
 
-        public override Rectangle GetSource(Dude owner)
+        public override FrameSource GetSource(Dude owner)
         {
-            return new Rectangle(SourceLeft, SourceTop, SourceW, SourceH);
+            return Source;
         }
     }
 
     class HatFrame : AnimationFrame
     {
-        public override Rectangle GetSource(Dude owner)
+        public override FrameSource GetSource(Dude owner)
         {
-            switch (owner.hat) {
+            switch (owner.hat)
+            {
                 case "green":
-                    return new Rectangle(owner.Direction * 32, 4 * 32, 32, 32);
+                    return new FrameSource()
+                    {
+                        SourceLeft = owner.Direction * 32,
+                        SourceTop = 4 * 32,
+                        SourceW = 32,
+                        SourceH = 32
+                    };
                 default:
-                    return new Rectangle(0,0,0,0);
+                    return new FrameSource();
             }
         }
     }
 
     class WeaponFrame : AnimationFrame
     {
-        public override Rectangle GetSource(Dude owner)
+        public override FrameSource GetSource(Dude owner)
         {
             switch (owner.weapon)
             {
                 case "pink-sword":
-                    return new Rectangle(6 * 32, 4 * 32, 32, 32);
+                    return new FrameSource()
+                    {
+                        SourceLeft = 6 * 32,
+                        SourceTop = 4 * 32,
+                        SourceW = 32,
+                        SourceH = 32
+                    };
                 case "grey-dagger":
-                    return new Rectangle(4 * 32, 4 * 32, 32, 32);
+                    return new FrameSource()
+                    {
+                        SourceLeft = 4 * 32,
+                        SourceTop = 4 * 32,
+                        SourceW = 32,
+                        SourceH = 32
+                    };
                 default:
-                    return new Rectangle(0, 0, 0, 0);
+                    return new FrameSource();
             }
         }
     }
 
     class ArmorFrame : AnimationFrame
     {
-        public override Rectangle GetSource(Dude owner)
+        public override FrameSource GetSource(Dude owner)
         {
             switch (owner.armor)
             {
                 case "cyan":
-                    return new Rectangle(owner.Direction * 32, 6 * 32, 32, 32);
+                    return new FrameSource()
+                    {
+                        SourceLeft = owner.Direction * 32,
+                        SourceTop = 6 * 32,
+                        SourceW = 32,
+                        SourceH = 32
+                    };
                 default:
-                    return new Rectangle(0, 0, 0, 0);
+                    return new FrameSource();
             }
         }
     }

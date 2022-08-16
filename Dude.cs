@@ -68,47 +68,63 @@ namespace DungeonPrototype
         public static Dictionary<string, Clip> genericClipMap = new Dictionary<string, Clip>()
         {
             {"body_white_idle_east", new LinearClip(new ManualFrame() {
-                    RelativeX = 0,
-                    RelativeY = 0,
-                    DestinationW = W,
-                    DestinationH = W,
-                    SourceTop = 1*W,
+                    Transform = new FrameTransform(){
+RelativeX = 0,
+                        RelativeY = 0,
+                        DestinationW = W,
+                        DestinationH = W
+                    },
+                    Source = new FrameSource(){
+SourceTop = 1*W,
                     SourceLeft = 4*W,
                     SourceW = W,
                     SourceH = W
+}
                }, 1, 3)},
             {"body_white_idle_south", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 5*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 5*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 3*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 3*W,
                         SourceLeft = 5*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
             }},
@@ -116,34 +132,46 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 6*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 6*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 3*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 3*W,
                         SourceLeft = 6*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
             }},
@@ -151,34 +179,46 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 7*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 7*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 3*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 3*W,
                         SourceLeft = 7*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
             }},
@@ -186,34 +226,46 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 0*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 0*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 3*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 3*W,
                         SourceLeft = 0*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
             }},
@@ -221,34 +273,46 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 1*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 1*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 3*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 3*W,
                         SourceLeft = 1*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
             }},
@@ -256,34 +320,46 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 2*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 2*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 3*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 3*W,
                         SourceLeft = 2*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
             }},
@@ -291,34 +367,46 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 3*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 3*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 3*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 3*W,
                         SourceLeft = 3*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
             }},
@@ -326,10 +414,12 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ArmorFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
             }},
@@ -337,10 +427,12 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ArmorFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
             }},
@@ -348,10 +440,12 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ArmorFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
             }},
@@ -359,10 +453,12 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ArmorFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
             }},
@@ -370,22 +466,28 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -9,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                 }
             }},
@@ -393,22 +495,28 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -9,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                 }
             }},
@@ -416,22 +524,28 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -9,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                 }
             }},
@@ -439,22 +553,28 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -9,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                 }
             }},
@@ -462,10 +582,12 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ArmorFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
             }},
@@ -473,10 +595,12 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ArmorFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
             }},
@@ -484,10 +608,12 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ArmorFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
             }},
@@ -495,10 +621,12 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ArmorFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
             }},
@@ -506,205 +634,266 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
-                        DestinationH = W,
+                        DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
-                        DestinationH = W,
+                        DestinationH = W
+},
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
-                        DestinationH = W,
+                        DestinationH = W
+},
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
-                        DestinationH = W,
+                        DestinationH = W
+},
                     },
                 }
-            }},
-            {"hat_generic_attack_south", new FramesClip() {
-                Frames = new AnimationFrame[]
+}},
+            {
+    "hat_generic_attack_south", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                 }
-            }},
-            {"hat_generic_attack_west", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "hat_generic_attack_west", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                 }
-            }},
-            {"hat_generic_attack_north", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "hat_generic_attack_north", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new HatFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                 }
-            }},
-            {"weapon_generic_attack_east", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "weapon_generic_attack_east", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new WeaponFrame() {
-                        RelativeX = 18,
+                        Transform = new FrameTransform(){
+RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -0.78f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 19,
+                        Transform = new FrameTransform(){
+RelativeX = 19,
                         RelativeY = 21,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -0.9f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 19,
+                        Transform = new FrameTransform(){
+RelativeX = 19,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.12f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 18,
+                        Transform = new FrameTransform(){
+RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.28f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
-            }},
-            {"weapon_generic_attack_south", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "weapon_generic_attack_south", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new WeaponFrame() {
-                        RelativeX = 18,
+                        Transform = new FrameTransform(){
+RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -1f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 19,
+                        Transform = new FrameTransform(){
+RelativeX = 19,
                         RelativeY = 21,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -1.2f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 19,
+                        Transform = new FrameTransform(){
+RelativeX = 19,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.62f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 18,
+                        Transform = new FrameTransform(){
+RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.66f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
-            }},
-            {"weapon_generic_attack_west", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "weapon_generic_attack_west", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new WeaponFrame() {
-                        RelativeX = 18,
+                        Transform = new FrameTransform(){
+RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         FlipVertically = true,
@@ -712,9 +901,11 @@ namespace DungeonPrototype
                         Rotation = 0.78f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 19,
+                        Transform = new FrameTransform(){
+RelativeX = 19,
                         RelativeY = 21,
                         AbsoluteRotation = false,
                         FlipVertically = true,
@@ -722,9 +913,11 @@ namespace DungeonPrototype
                         Rotation = 0.9f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 19,
+                        Transform = new FrameTransform(){
+RelativeX = 19,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         FlipVertically = true,
@@ -732,9 +925,11 @@ namespace DungeonPrototype
                         Rotation = -0.12f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 18,
+                        Transform = new FrameTransform(){
+RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         FlipVertically = true,
@@ -742,449 +937,622 @@ namespace DungeonPrototype
                         Rotation = -0.28f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
-            }},
-            {"weapon_generic_attack_north", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "weapon_generic_attack_north", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new WeaponFrame() {
-                        RelativeX = 18,
+                        Transform = new FrameTransform(){
+RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -1f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 19,
+                        Transform = new FrameTransform(){
+RelativeX = 19,
                         RelativeY = 21,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = -1.2f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 19,
+                        Transform = new FrameTransform(){
+RelativeX = 19,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.62f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     },
                     new WeaponFrame() {
-                        RelativeX = 18,
+                        Transform = new FrameTransform(){
+RelativeX = 18,
                         RelativeY = 22,
                         AbsoluteRotation = false,
                         OriginOffsetY = 16,
                         Rotation = 0.66f,
                         DestinationW = W,
                         DestinationH = W
+                        },
                     }
                 }
-            }},
-            {"body_white_attack_east", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "body_white_attack_east", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 4*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 4*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 4*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 4*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
-            }},
-            {"body_white_attack_south", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "body_white_attack_south", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 5*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 5*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 5*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 5*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
-            }},
-            {"body_white_attack_west", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "body_white_attack_west", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 6*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 6*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 6*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 6*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
-            }},
-            {"body_white_attack_north", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "body_white_attack_north", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 7*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 7*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 7*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 7*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
-            }},
-            {"body_red_attack_east", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "body_red_attack_east", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 0*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 0*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 0*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 0*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
-            }},
-            {"body_red_attack_south", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "body_red_attack_south", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 1*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 1*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 1*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 1*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
-            }},
-            {"body_red_attack_west", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "body_red_attack_west", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 2*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 2*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 2*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 2*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
-            }},
-            {"body_red_attack_north", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "body_red_attack_north", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 3*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 3*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 2*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 2*W,
                         SourceLeft = 3*W,
                         SourceW = W,
                         SourceH = W
+}
                     },
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 1*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 1*W,
                         SourceLeft = 3*W,
                         SourceW = W,
                         SourceH = W
+}
                     }
                 }
-            }},
-            {"weapon-effect_basic-slash_attack_east", new FramesClip() {
-                Frames = new AnimationFrame[]
+    }},
+            {
+    "weapon-effect_basic-slash_attack_east", new FramesClip()
+    {
+        Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
-                        SourceTop = 5*W,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 0*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     },new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
-                        SourceTop = 5*W,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 0*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     },new ManualFrame() {
-                        RelativeX = 16,
+                        Transform = new FrameTransform(){
+RelativeX = 16,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 5*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 0*W,
                         SourceW = W,
                         SourceH = W
+}
                     },new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
-                        SourceTop = 5*W,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 0*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     }
                 }
             }},
@@ -1192,41 +1560,57 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
-                        SourceTop = 5*W,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 1*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     },new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
-                        SourceTop = 5*W,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 1*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     },new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 16,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 5*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 1*W,
                         SourceW = W,
                         SourceH = W
+}
                     },new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
-                        SourceTop = 5*W,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 1*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     }
                 }
             }},
@@ -1234,41 +1618,58 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
-                        SourceTop = 5*W,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 2*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     },new ManualFrame() {
-                        RelativeX = 0,
+                        Transform = new FrameTransform(){
+RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
-                        SourceTop = 5*W,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 2*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     },new ManualFrame() {
-                        RelativeX = -16,
+                        Transform = new FrameTransform(){
+RelativeX = -16,
                         RelativeY = 0,
                         DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 5*W,
+                        DestinationH = W
+},
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 2*W,
                         SourceW = W,
                         SourceH = W
+}
                     },new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = 1,
-                        DestinationH = 1,
-                        SourceTop = 5*W,
+                        Transform = new FrameTransform()
+                        {
+                            RelativeX = 0,
+                            RelativeY = 0,
+                            DestinationW = 1,
+                            DestinationH = 1,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 2*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     }
                 }
             }},
@@ -1276,41 +1677,61 @@ namespace DungeonPrototype
                 Frames = new AnimationFrame[]
                 {
                     new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = 1,
-                        DestinationH = 1,
-                        SourceTop = 5*W,
+                        Transform = new FrameTransform()
+                        {
+                            RelativeX = 0,
+                            RelativeY = 0,
+                            DestinationW = 1,
+                            DestinationH = 1,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 3*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     },new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = 1,
-                        DestinationH = 1,
-                        SourceTop = 5*W,
+                        Transform = new FrameTransform()
+                        {
+                            RelativeX = 0,
+                            RelativeY = 0,
+                            DestinationW = 1,
+                            DestinationH = 1,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 3*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     },new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = -16,
-                        DestinationW = W,
-                        DestinationH = W,
-                        SourceTop = 5*W,
+                        Transform = new FrameTransform()
+                        {
+                            RelativeX = 0,
+                            RelativeY = -16,
+                            DestinationW = W,
+                            DestinationH = W
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 3*W,
                         SourceW = W,
                         SourceH = W
+}
                     },new ManualFrame() {
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = 1,
-                        DestinationH = 1,
-                        SourceTop = 5*W,
+                        Transform = new FrameTransform()
+                        {
+                            RelativeX = 0,
+                            RelativeY = 0,
+                            DestinationW = 1,
+                            DestinationH = 1,
+                        },
+                        Source = new FrameSource(){
+SourceTop = 5*W,
                         SourceLeft = 3*W,
                         SourceW = 1,
                         SourceH = 1
+}
                     }
                 }
             }},
@@ -1483,11 +1904,12 @@ namespace DungeonPrototype
             if (frame == null)
                 return;
 
-            var finalRotation = (frame.AbsoluteRotation ? 0f : rotation) + frame.Rotation;
-            var spriteEffectFlags = (frame.FlipHorizontally ? SpriteEffects.FlipHorizontally : SpriteEffects.None) | (frame.FlipVertically ? SpriteEffects.FlipVertically : SpriteEffects.None);
+            var transform = frame.Transform;
+            var finalRotation = (transform.AbsoluteRotation ? 0f : rotation) + transform.Rotation;
+            var spriteEffectFlags = (transform.FlipHorizontally ? SpriteEffects.FlipHorizontally : SpriteEffects.None) | (transform.FlipVertically ? SpriteEffects.FlipVertically : SpriteEffects.None);
 
             var source = frame.GetSource(owner);
-            sb.Draw(sheet, new Rectangle(x + frame.RelativeX, y + frame.RelativeY, frame.DestinationW, frame.DestinationW), source, Color.White, finalRotation, new Vector2(frame.OriginOffsetX, frame.OriginOffsetY), spriteEffectFlags, 0);
+            sb.Draw(sheet, new Rectangle(x + transform.RelativeX, y + transform.RelativeY, transform.DestinationW, transform.DestinationW), new Rectangle(source.SourceLeft, source.SourceTop, source.SourceW, source.SourceH), Color.White, finalRotation, new Vector2(transform.OriginOffsetX, transform.OriginOffsetY), spriteEffectFlags, 0);
         }
 
     }
