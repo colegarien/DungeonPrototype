@@ -38,9 +38,10 @@ namespace DungeonPrototype
             layer1 = new MapLayer("Content/map.txt");
             layer2 = new MapLayer("Content/map2.txt");
 
+            var x = 100;
             dudes = new List<Dude>() {
                 new Dude(new Animator(),new PlayerInput(), 100, 100),
-                new Dude(new Animator(), new MonsterInput(), 180, 100){body="red",hat="cowboy",armor="biker",weapon="grey-dagger",mask="sunglasses"}
+                new Dude(new Animator(), new MonsterInput(), x+=40, 90){body="red",hat="cowboy",armor="biker",weapon="grey-dagger",mask="sunglasses"},
             };
 
             base.Initialize();

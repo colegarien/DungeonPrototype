@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections.Generic;
 
 namespace DungeonPrototype
@@ -59,6 +60,101 @@ namespace DungeonPrototype
         public bool DoAttack()
         {
             return Keyboard.GetState().IsKeyDown(Keys.Enter);
+        }
+    }
+
+    class AnimatorData
+    {
+        public string State { get; set; } = "idle";
+        public string Direction { get; set; } = "east";
+        public float currentFrameTime { get; set; } = 0f;
+        public float perFrameTime { get; set; } = 100f; // ~10fps
+        public Dictionary<string, int> currentFrameIndexes { get; set; } = new Dictionary<string, int>();
+
+        public string hat = "";
+        public string body = "";
+        public string armor = "";
+        public string weapon = "";
+        public string weapon_effect = "";
+        public string mask = "";
+
+
+        public void Update(Dude owner, float deltaTime)
+        {
+            State = owner.state is IdleState ? "idle" : "attack";
+            // east, south, west, north == 0, 1, 2, 3
+            switch (owner.Direction)
+            {
+                case 0:
+                    Direction = "east";
+                    break;
+                case 1:
+                    Direction = "south";
+                    break;
+                case 2:
+                    Direction = "west";
+                    break;
+                case 3:
+                    Direction = "north";
+                    break;
+            }
+
+            hat = owner.hat;
+            body = owner.body;
+            armor = owner.armor;
+            weapon = owner.weapon;
+            weapon_effect = owner.weapon_effect;
+            mask = owner.mask;
+            currentFrameTime += deltaTime;
+        }
+
+        public string getHatKey(IDictionary<string, Clip> allAnimations)
+        {
+            return buildAnimationKey("hat", hat, allAnimations);
+        }
+        public string getBodyKey(IDictionary<string, Clip> allAnimations)
+        {
+            return buildAnimationKey("body", body, allAnimations);
+        }
+        public string getArmorKey(IDictionary<string, Clip> allAnimations)
+        {
+            return buildAnimationKey("armor", armor, allAnimations);
+        }
+        public string getWeaponKey(IDictionary<string, Clip> allAnimations)
+        {
+            return buildAnimationKey("weapon", weapon, allAnimations);
+        }
+        public string getWeaponEffectKey(IDictionary<string, Clip> allAnimations)
+        {
+            return buildAnimationKey("weapon-effect", weapon_effect, allAnimations);
+        }
+        public string getMaskKey(IDictionary<string, Clip> allAnimations)
+        {
+            return buildAnimationKey("mask", mask, allAnimations);
+        }
+
+        private string buildAnimationKey(string root, string value, IDictionary<string, Clip> allAnimations)
+        {
+            var key = $"{root}_{value}_{State}_{Direction}";
+            if (!allAnimations.ContainsKey(key) && value != "")
+                key = $"{root}_generic_{State}_{Direction}";
+
+            return key;
+        }
+
+        public int GetFrameIndex(string key)
+        {
+            return currentFrameIndexes.GetValueOrDefault(key, 0);
+        }
+
+        public void UpdateFrameIndex(string key, int value)
+        {
+            currentFrameIndexes[key] = value;
+        }
+
+        public void ResetFrameIndexes()
+        {
+            currentFrameIndexes.Clear();
         }
     }
 
@@ -1965,195 +2061,140 @@ SourceTop = 5*W,
                 }
             }},
         };
-        public static float perFrameTime = 100f; // ~10fps
+        public static float defaultPerFrameTime = 100f; // ~10fps
 
-        // TODO make state-machiney parts
-        public float curFrameTime = 0;
-        public string state = "idle";
-        public Dictionary<string, int> frameIndexes = new Dictionary<string, int>();
+        public AnimatorData data = new AnimatorData() { perFrameTime = defaultPerFrameTime };
 
+        public bool IsOnLastFrame(Dude owner)
+        {
+            var animationBodyKey = $"body_{owner.body}_{data.State}_{data.Direction}";
+            if (genericClipMap.ContainsKey(animationBodyKey))
+            {
+                return data.GetFrameIndex(animationBodyKey) == genericClipMap[animationBodyKey].GetLastFrame();
+            }
+
+            return false;
+        }
+
+        public void HandleStateChange(Dude owner)
+        {
+            data.ResetFrameIndexes();
+            data.Update(owner, 0f);
+        }
 
         public void Update(Dude owner, GameTime gameTime)
         {
-            if (owner.IsAttacking && state != "attack")
+            data.Update(owner, (float)gameTime.ElapsedGameTime.TotalMilliseconds);
+            if (data.currentFrameTime >= data.perFrameTime)
             {
-                state = "attack";
-                // reset all frame counters
-                frameIndexes.Clear();
-            }
-            else if (!owner.IsAttacking && state != "idle")
-            {
-                state = "idle";
-                // reset all frame counters
-                frameIndexes.Clear();
-            }
+                data.currentFrameTime -= data.perFrameTime;
 
-            curFrameTime += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (curFrameTime >= perFrameTime)
-            {
-                curFrameTime -= perFrameTime;
-
-                // east, south, west, north == 0, 1, 2, 3
-                var direction = "";
-                switch (owner.Direction)
-                {
-                    case 0:
-                        direction = "east";
-                        break;
-                    case 1:
-                        direction = "south";
-                        break;
-                    case 2:
-                        direction = "west";
-                        break;
-                    case 3:
-                        direction = "north";
-                        break;
-                }
-                var animationBodyKey = $"body_{owner.body}_{state}_{direction}";
+                var animationBodyKey = data.getBodyKey(genericClipMap);
                 if (genericClipMap.ContainsKey(animationBodyKey))
                 {
-                    frameIndexes[animationBodyKey] = genericClipMap[animationBodyKey].Tick(frameIndexes.GetValueOrDefault(animationBodyKey, 0));
+                    data.UpdateFrameIndex(animationBodyKey, genericClipMap[animationBodyKey].Tick(data.GetFrameIndex(animationBodyKey)));
                 }
 
-                var animationArmorKey = $"armor_{owner.armor}_{state}_{direction}";
-                if (!genericClipMap.ContainsKey(animationArmorKey) && owner.armor != "")
-                    animationArmorKey = $"armor_generic_{state}_{direction}";
+                var animationArmorKey = data.getArmorKey(genericClipMap);
                 if (genericClipMap.ContainsKey(animationArmorKey))
                 {
-                    frameIndexes[animationArmorKey] = genericClipMap[animationArmorKey].Tick(frameIndexes.GetValueOrDefault(animationArmorKey, 0));
+                    data.UpdateFrameIndex(animationArmorKey, genericClipMap[animationArmorKey].Tick(data.GetFrameIndex(animationArmorKey)));
                 }
 
-                var animationMaskKey = $"mask_{owner.mask}_{state}_{direction}";
-                if (!genericClipMap.ContainsKey(animationMaskKey) && owner.mask != "")
-                    animationMaskKey = $"mask_generic_{state}_{direction}";
+                var animationMaskKey = data.getMaskKey(genericClipMap);
                 if (genericClipMap.ContainsKey(animationMaskKey))
                 {
-                    frameIndexes[animationMaskKey] = genericClipMap[animationMaskKey].Tick(frameIndexes.GetValueOrDefault(animationMaskKey, 0));
+                    data.UpdateFrameIndex(animationMaskKey, genericClipMap[animationMaskKey].Tick(data.GetFrameIndex(animationMaskKey)));
                 }
 
-                var animationHatKey = $"hat_{owner.hat}_{state}_{direction}";
-                if (!genericClipMap.ContainsKey(animationHatKey) && owner.hat != "")
-                    animationHatKey = $"hat_generic_{state}_{direction}";
+                var animationHatKey = data.getHatKey(genericClipMap);
                 if (genericClipMap.ContainsKey(animationHatKey))
                 {
-                    frameIndexes[animationHatKey] = genericClipMap[animationHatKey].Tick(frameIndexes.GetValueOrDefault(animationHatKey, 0));
+                    data.UpdateFrameIndex(animationHatKey, genericClipMap[animationHatKey].Tick(data.GetFrameIndex(animationHatKey)));
                 }
 
-                var animationWeaponKey = $"weapon_{owner.weapon}_{state}_{direction}";
-                if (!genericClipMap.ContainsKey(animationWeaponKey) && owner.weapon != "")
-                    animationWeaponKey = $"weapon_generic_{state}_{direction}";
+                var animationWeaponKey = data.getWeaponKey(genericClipMap);
                 if (genericClipMap.ContainsKey(animationWeaponKey))
                 {
-                    frameIndexes[animationWeaponKey] = genericClipMap[animationWeaponKey].Tick(frameIndexes.GetValueOrDefault(animationWeaponKey, 0));
+                    data.UpdateFrameIndex(animationWeaponKey, genericClipMap[animationWeaponKey].Tick(data.GetFrameIndex(animationWeaponKey)));
                 }
 
-                var animationWeaponEffectKey = $"weapon-effect_{owner.weapon_effect}_{state}_{direction}";
-                if (!genericClipMap.ContainsKey(animationWeaponEffectKey) && owner.weapon_effect != "")
-                    animationWeaponEffectKey = $"weapon-effect_generic_{state}_{direction}";
+                var animationWeaponEffectKey = data.getWeaponEffectKey(genericClipMap);
                 if (genericClipMap.ContainsKey(animationWeaponEffectKey))
                 {
-                    frameIndexes[animationWeaponEffectKey] = genericClipMap[animationWeaponEffectKey].Tick(frameIndexes.GetValueOrDefault(animationWeaponEffectKey, 0));
+                    data.UpdateFrameIndex(animationWeaponEffectKey, genericClipMap[animationWeaponEffectKey].Tick(data.GetFrameIndex(animationWeaponEffectKey)));
                 }
             }
         }
 
-        public void Draw(Dude owner, SpriteBatch sb, Texture2D sheet, int x, int y, float rotation)
+        public void Draw(Dude owner, SpriteBatch sb, Texture2D sheet)
         {
-            // east, south, west, north == 0, 1, 2, 3
-            var direction = "";
-            switch (owner.Direction)
-            {
-                case 0:
-                    direction = "east";
-                    break;
-                case 1:
-                    direction = "south";
-                    break;
-                case 2:
-                    direction = "west";
-                    break;
-                case 3:
-                    direction = "north";
-                    break;
-            }
-
-            var animationWeaponKey = $"weapon_{owner.weapon}_{state}_{direction}";
-            if (!genericClipMap.ContainsKey(animationWeaponKey) && owner.weapon != "")
-                animationWeaponKey = $"weapon_generic_{state}_{direction}";
-            var animationWeaponEffectKey = $"weapon-effect_{owner.weapon_effect}_{state}_{direction}";
-            if (!genericClipMap.ContainsKey(animationWeaponEffectKey) && owner.weapon_effect != "")
-                animationWeaponEffectKey = $"weapon-effect_generic_{state}_{direction}";
-            if (direction == "west" || direction == "north")
+            var animationWeaponKey = data.getWeaponKey(genericClipMap);
+            var animationWeaponEffectKey = data.getWeaponEffectKey(genericClipMap);
+            if (data.Direction == "west" || data.Direction == "north")
             {
                 if (genericClipMap.ContainsKey(animationWeaponKey))
                 {
-                    DrawCurrentFrame(genericClipMap[animationWeaponKey], frameIndexes.GetValueOrDefault(animationWeaponKey, 0), owner, sb, sheet, x, y, rotation);
+                    DrawCurrentFrame(genericClipMap[animationWeaponKey], data.GetFrameIndex(animationWeaponKey), owner, sb, sheet);
                 }
 
                 if (genericClipMap.ContainsKey(animationWeaponEffectKey))
                 {
-                    DrawCurrentFrame(genericClipMap[animationWeaponEffectKey], frameIndexes.GetValueOrDefault(animationWeaponEffectKey, 0), owner, sb, sheet, x, y, rotation);
+                    DrawCurrentFrame(genericClipMap[animationWeaponEffectKey], data.GetFrameIndex(animationWeaponEffectKey), owner, sb, sheet);
                 }
             }
 
 
-            var animationBodyKey = $"body_{owner.body}_{state}_{direction}";
+            var animationBodyKey = data.getBodyKey(genericClipMap);
             if (genericClipMap.ContainsKey(animationBodyKey))
             {
-                DrawCurrentFrame(genericClipMap[animationBodyKey], frameIndexes.GetValueOrDefault(animationBodyKey, 0), owner, sb, sheet, x, y, rotation);
+                DrawCurrentFrame(genericClipMap[animationBodyKey], data.GetFrameIndex(animationBodyKey), owner, sb, sheet);
             }
 
-            var animationArmorKey = $"armor_{owner.armor}_{state}_{direction}";
-            if (!genericClipMap.ContainsKey(animationArmorKey) && owner.armor != "")
-                animationArmorKey = $"armor_generic_{state}_{direction}";
+            var animationArmorKey = data.getArmorKey(genericClipMap);
             if (genericClipMap.ContainsKey(animationArmorKey))
             {
-                DrawCurrentFrame(genericClipMap[animationArmorKey], frameIndexes.GetValueOrDefault(animationArmorKey, 0), owner, sb, sheet, x, y, rotation);
+                DrawCurrentFrame(genericClipMap[animationArmorKey], data.GetFrameIndex(animationArmorKey), owner, sb, sheet);
             }
 
-            var animationMaskKey = $"mask_{owner.mask}_{state}_{direction}";
-            if (!genericClipMap.ContainsKey(animationMaskKey) && owner.mask != "")
-                animationMaskKey = $"mask_generic_{state}_{direction}";
+            var animationMaskKey = data.getMaskKey(genericClipMap);
             if (genericClipMap.ContainsKey(animationMaskKey))
             {
-                DrawCurrentFrame(genericClipMap[animationMaskKey], frameIndexes.GetValueOrDefault(animationMaskKey, 0), owner, sb, sheet, x, y, rotation);
+                DrawCurrentFrame(genericClipMap[animationMaskKey], data.GetFrameIndex(animationMaskKey), owner, sb, sheet);
             }
 
-            var animationHatKey = $"hat_{owner.hat}_{state}_{direction}";
-            if (!genericClipMap.ContainsKey(animationHatKey) && owner.hat != "")
-                animationHatKey = $"hat_generic_{state}_{direction}";
+            var animationHatKey = data.getHatKey(genericClipMap);
             if (genericClipMap.ContainsKey(animationHatKey))
             {
-                DrawCurrentFrame(genericClipMap[animationHatKey], frameIndexes.GetValueOrDefault(animationHatKey, 0), owner, sb, sheet, x, y, rotation);
+                DrawCurrentFrame(genericClipMap[animationHatKey], data.GetFrameIndex(animationHatKey), owner, sb, sheet);
             }
 
 
-            if (direction == "east" || direction == "south")
+            if (data.Direction == "east" || data.Direction == "south")
             {
                 if (genericClipMap.ContainsKey(animationWeaponKey))
                 {
-                    DrawCurrentFrame(genericClipMap[animationWeaponKey], frameIndexes.GetValueOrDefault(animationWeaponKey, 0), owner, sb, sheet, x, y, rotation);
+                    DrawCurrentFrame(genericClipMap[animationWeaponKey], data.GetFrameIndex(animationWeaponKey), owner, sb, sheet);
                 }
 
                 if (genericClipMap.ContainsKey(animationWeaponEffectKey))
                 {
-                    DrawCurrentFrame(genericClipMap[animationWeaponEffectKey], frameIndexes.GetValueOrDefault(animationWeaponEffectKey, 0), owner, sb, sheet, x, y, rotation);
+                    DrawCurrentFrame(genericClipMap[animationWeaponEffectKey], data.GetFrameIndex(animationWeaponEffectKey), owner, sb, sheet);
                 }
             }
         }
 
 
-        public virtual void DrawCurrentFrame(Clip clip, int frameIndex, Dude owner, SpriteBatch sb, Texture2D sheet, int x, int y, float rotation)
+        public virtual void DrawCurrentFrame(Clip clip, int frameIndex, Dude owner, SpriteBatch sb, Texture2D sheet)
         {
             var frame = clip.GetFrame(frameIndex);
 
             var transform = frame.Transform;
-            var finalRotation = (transform.RelativeRotation ? rotation : 0f ) + transform.Rotation;
+            var finalRotation = (transform.RelativeRotation ? (MathHelper.PiOver2 * owner.Direction) : 0f) + transform.Rotation;
             var spriteEffectFlags = (transform.FlipHorizontally ? SpriteEffects.FlipHorizontally : SpriteEffects.None) | (transform.FlipVertically ? SpriteEffects.FlipVertically : SpriteEffects.None);
 
             var source = frame.Sourcer.GetSource(owner);
-            sb.Draw(sheet, new Rectangle(x + transform.RelativeX, y + transform.RelativeY, transform.DestinationW, transform.DestinationW), new Rectangle(source.SourceLeft, source.SourceTop, source.SourceW, source.SourceH), Color.White, finalRotation, new Vector2(transform.OriginOffsetX, transform.OriginOffsetY), spriteEffectFlags, 0);
+            sb.Draw(sheet, new Rectangle(owner.X + transform.RelativeX, owner.Y + transform.RelativeY, transform.DestinationW, transform.DestinationW), new Rectangle(source.SourceLeft, source.SourceTop, source.SourceW, source.SourceH), Color.White, finalRotation, new Vector2(transform.OriginOffsetX, transform.OriginOffsetY), spriteEffectFlags, 0);
         }
 
     }
@@ -2165,6 +2206,7 @@ SourceTop = 5*W,
 
         public Input input;
         public Animator animator;
+        public State state;
 
         /** TODO this!?
          * 1. Head - Always in front of body
@@ -2198,14 +2240,6 @@ SourceTop = 5*W,
         public float hitDelay = 60;
         public float hitDelayTimer = 0;
 
-        public bool IsAttacking { get; set; } = false;
-        public float AttackSwingTimer { get; set; } = 0;
-        public float AttackSwingSpeed { get; set; } = 0.03f;
-        public float AttackArcTop { get; set; } = -0.7f;
-        public float AttackArcBot { get; set; } = 0.7f;
-        public float P0 { get; set; } = -7f;
-        public float P4 { get; set; } = 7f;
-
         public Dude(Animator animator, Input input, int x, int y)
         {
             this.input = input;
@@ -2214,19 +2248,13 @@ SourceTop = 5*W,
             this.Y = y;
             this.PreviousX = x;
             this.PreviousY = y;
+            this.state = new IdleState { Context = this };
         }
 
         public void Update(GameTime gameTime, MapLayer layer, Dude[] dudes)
         {
             PreviousX = X;
             PreviousY = Y;
-
-            if (IsAttacking)
-            {
-                AttackSwingTimer += AttackSwingSpeed;
-                if (AttackSwingTimer > 1f)
-                    IsAttacking = false;
-            }
 
             if (input.MoveRight() && !IsCollision(X + Speed, Y, layer, dudes))
             {
@@ -2247,11 +2275,6 @@ SourceTop = 5*W,
             {
                 Direction = 3;
                 Y -= Speed;
-            }
-            if (input.DoAttack() && !IsAttacking)
-            {
-                IsAttacking = true;
-                AttackSwingTimer = 0;
             }
 
 
@@ -2277,12 +2300,13 @@ SourceTop = 5*W,
                 hitDelayTimer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
 
+            state.Tick((float)gameTime.ElapsedGameTime.TotalMilliseconds);
             animator.Update(this, gameTime);
         }
 
         public bool WillHit(int bottom, int top, int left, int right)
         {
-            if (!IsAttacking)
+            if (!(state is AttackState))
                 return false;
 
             var bottom2 = Y + W;
@@ -2352,7 +2376,13 @@ SourceTop = 5*W,
         public void Draw(SpriteBatch sb, Texture2D sheet, SpriteFont font)
         {
             sb.DrawString(font, $"{Health} / {MaxHealth}", new Vector2(X - 15, Y - 15), Color.Red);
-            animator.Draw(this, sb, sheet, X, Y, (MathHelper.PiOver2 * Direction));
+            animator.Draw(this, sb, sheet);
+        }
+
+        public void ChangeState(State state)
+        {
+            this.state = state;
+            animator.HandleStateChange(this);
         }
     }
 }
