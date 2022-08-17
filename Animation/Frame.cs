@@ -1,90 +1,100 @@
-﻿namespace DungeonPrototype.Animation
+﻿using System.Collections.Generic;
+
+namespace DungeonPrototype.Animation
 {
-    class FrameTransform
+    struct FrameTransform
     {
-        public int RelativeX { get; set; } = 0;
-        public int RelativeY { get; set; } = 0;
-        public int DestinationW { get; set; } = 0;
-        public int DestinationH { get; set; } = 0;
+        public int RelativeX;
+        public int RelativeY;
+        public int DestinationW;
+        public int DestinationH;
 
-        public bool AbsoluteRotation = true;
-        public float Rotation { get; set; } = 0;
-        public float OriginOffsetX { get; set; } = 0;
-        public float OriginOffsetY { get; set; } = 0;
+        public bool RelativeRotation;
+        public float Rotation;
+        public float OriginOffsetX;
+        public float OriginOffsetY;
 
-        public bool FlipHorizontally = false;
-        public bool FlipVertically = false;
-
-        public FrameTransform ShallowCopy()
-        {
-            return (FrameTransform)this.MemberwiseClone();
-        }
+        public bool FlipHorizontally;
+        public bool FlipVertically;
     }
 
-    class FrameSource
+    struct FrameSource
     {
-        public int SourceTop { get; set; } = 0;
-        public int SourceLeft { get; set; } = 0;
-        public int SourceW { get; set; } = 0;
-        public int SourceH { get; set; } = 0;
-
-        public FrameSource ShallowCopy()
-        {
-            return (FrameSource)this.MemberwiseClone();
-        }
+        public int SourceTop;
+        public int SourceLeft;
+        public int SourceW;
+        public int SourceH;
     }
 
-    class AnimationFrame
+    interface FrameSourcer
     {
-        public FrameTransform Transform { get; set; }
-
-        public virtual FrameSource GetSource(Dude owner)
-        {
-            return new FrameSource();
-        }
+        public FrameSource GetSource(Dude owner);
     }
 
-    class ManualFrame : AnimationFrame
+    struct AnimationFrame
     {
-        public FrameSource Source { get; set; }
+        public FrameTransform Transform;
+        public FrameSourcer Sourcer;
+    }
 
-        public override FrameSource GetSource(Dude owner)
+    struct DirectSourcer : FrameSourcer
+    {
+        public FrameSource Source;
+
+        public FrameSource GetSource(Dude owner)
         {
             return Source;
         }
     }
 
-    class HatFrame : AnimationFrame
+    struct HatSourcer : FrameSourcer
     {
-        public override FrameSource GetSource(Dude owner)
+        private static Dictionary<string, FrameSource> sources = new Dictionary<string, FrameSource>()
         {
-            switch (owner.hat)
+            { "green", new FrameSource()
+                {
+                    SourceLeft = 0,
+                    SourceTop = 4 * 32,
+                    SourceW = 32,
+                    SourceH = 32
+            }},
+            { "cowboy", new FrameSource()
+                {
+                    SourceLeft = 0,
+                    SourceTop = 7 * 32,
+                    SourceW = 32,
+                    SourceH = 32
+            }},
+        };
+        private static HatSourcer _instance = new HatSourcer();
+        public static HatSourcer GetInstance()
+        {
+            return _instance;
+        }
+
+        public FrameSource GetSource(Dude owner)
+        {
+            if (sources.ContainsKey(owner.hat))
             {
-                case "green":
-                    return new FrameSource()
-                    {
-                        SourceLeft = owner.Direction * 32,
-                        SourceTop = 4 * 32,
-                        SourceW = 32,
-                        SourceH = 32
-                    };
-                case "cowboy":
-                    return new FrameSource()
-                    {
-                        SourceLeft = owner.Direction * 32,
-                        SourceTop = 7 * 32,
-                        SourceW = 32,
-                        SourceH = 32
-                    };
-                default:
-                    return new FrameSource();
+                var source = sources[owner.hat];
+                source.SourceLeft += owner.Direction * 32;
+
+                return source;
             }
+
+            return new FrameSource();
         }
     }
 
-    class MaskFrame : AnimationFrame
+    struct MaskSourcer : FrameSourcer
     {
-        public override FrameSource GetSource(Dude owner)
+        private static MaskSourcer _instance = new MaskSourcer();
+        public static MaskSourcer GetInstance()
+        {
+            return _instance;
+        }
+
+        public FrameSource GetSource(Dude owner)
         {
             switch (owner.mask)
             {
@@ -102,9 +112,15 @@
         }
     }
 
-    class WeaponFrame : AnimationFrame
+    struct WeaponSourcer : FrameSourcer
     {
-        public override FrameSource GetSource(Dude owner)
+        private static WeaponSourcer _instance = new WeaponSourcer();
+        public static WeaponSourcer GetInstance()
+        {
+            return _instance;
+        }
+
+        public FrameSource GetSource(Dude owner)
         {
             switch (owner.weapon)
             {
@@ -130,9 +146,15 @@
         }
     }
 
-    class ArmorFrame : AnimationFrame
+    struct ArmorSourcer : FrameSourcer
     {
-        public override FrameSource GetSource(Dude owner)
+        private static ArmorSourcer _instance = new ArmorSourcer();
+        public static ArmorSourcer GetInstance()
+        {
+            return _instance;
+        }
+
+        public FrameSource GetSource(Dude owner)
         {
             switch (owner.armor)
             {

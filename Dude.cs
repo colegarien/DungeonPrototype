@@ -67,1753 +67,1825 @@ namespace DungeonPrototype
         public const int W = 32;
         public static Dictionary<string, Clip> genericClipMap = new Dictionary<string, Clip>()
         {
-            {"body_white_idle_east", new LinearClip(
-                new ManualFrame() {
-                    Transform = new FrameTransform(){
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W
-                    },
-                    Source = new FrameSource(){
-                        SourceTop = 1*W,
-                        SourceLeft = 4*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
+            {"body_white_idle_east", new Clip(
+                new FrameTransform(){
+                    RelativeX = 0,
+                    RelativeY = 0,
+                    DestinationW = W,
+                    DestinationH = W
+                },
+                new FrameSource(){
+                    SourceTop = 1*W,
+                    SourceLeft = 4*W,
+                    SourceW = W,
+                    SourceH = W
                 }, 1, 3)
             },
-            {"body_white_idle_south", new LinearClip(
-                new ManualFrame() {
-                    Transform = new FrameTransform(){
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W
-                    },
-                    Source = new FrameSource(){
-                        SourceTop = 1*W,
-                        SourceLeft = 5*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
+            {"body_white_idle_south", new Clip(
+                new FrameTransform(){
+                    RelativeX = 0,
+                    RelativeY = 0,
+                    DestinationW = W,
+                    DestinationH = W
+                },
+                new FrameSource(){
+                    SourceTop = 1*W,
+                    SourceLeft = 5*W,
+                    SourceW = W,
+                    SourceH = W
+                } , 1, 3)
+            },
+            {"body_white_idle_west", new Clip(
+                new FrameTransform(){
+                    RelativeX = 0,
+                    RelativeY = 0,
+                    DestinationW = W,
+                    DestinationH = W
+                },
+                new FrameSource(){
+                    SourceTop = 1*W,
+                    SourceLeft = 6*W,
+                    SourceW = W,
+                    SourceH = W
+                } , 1, 3)
+            },
+            {"body_white_idle_north", new Clip(
+                new FrameTransform(){
+                    RelativeX = 0,
+                    RelativeY = 0,
+                    DestinationW = W,
+                    DestinationH = W
+                },
+                new FrameSource(){
+                    SourceTop = 1*W,
+                    SourceLeft = 7*W,
+                    SourceW = W,
+                    SourceH = W
                 }, 1, 3)
             },
-            {"body_white_idle_west", new LinearClip(
-                new ManualFrame() {
-                    Transform = new FrameTransform(){
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W
-                    },
-                    Source = new FrameSource(){
-                        SourceTop = 1*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }, 1, 3)
-            },
-            {"body_white_idle_north", new LinearClip(
-                new ManualFrame() {
-                    Transform = new FrameTransform(){
-                        RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W
-                    },
-                    Source = new FrameSource(){
-                        SourceTop = 1*W,
-                        SourceLeft = 7*W,
-                        SourceW = W,
-                        SourceH = W
-                    }
-                }, 1, 3)
-            },
-            {"body_red_idle_east", new FramesClip() {
+            {"body_red_idle_east", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 0*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 0*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 3*W,
                         SourceLeft = 0*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
             }},
-            {"body_red_idle_south", new FramesClip() {
+            {"body_red_idle_south", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 1*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 1*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 3*W,
                         SourceLeft = 1*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
             }},
-            {"body_red_idle_west", new FramesClip() {
+            {"body_red_idle_west", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 2*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 2*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 3*W,
                         SourceLeft = 2*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
             }},
-            {"body_red_idle_north", new FramesClip() {
+            {"body_red_idle_north", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 3*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 3*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 3*W,
                         SourceLeft = 3*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
             }},
-            {"armor_generic_idle_east", new FramesClip() {
+            {"armor_generic_idle_east", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ArmorFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = ArmorSourcer.GetInstance()
                     }
                 }
             }},
-            {"armor_generic_idle_south", new FramesClip() {
+            {"armor_generic_idle_south", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ArmorFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = ArmorSourcer.GetInstance()
                     }
                 }
             }},
-            {"armor_generic_idle_west", new FramesClip() {
+            {"armor_generic_idle_west", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ArmorFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = ArmorSourcer.GetInstance()
                     }
                 }
             }},
-            {"armor_generic_idle_north", new FramesClip() {
+            {"armor_generic_idle_north", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ArmorFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = ArmorSourcer.GetInstance()
                     }
                 }
             }},
-            {"hat_generic_idle_east", new FramesClip() {
+            {"hat_generic_idle_east", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -9,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
                 }
             }},
-            {"hat_generic_idle_south", new FramesClip() {
+            {"hat_generic_idle_south", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -9,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
                 }
             }},
-            {"hat_generic_idle_west", new FramesClip() {
+            {"hat_generic_idle_west", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -9,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
                 }
             }},
-            {"hat_generic_idle_north", new FramesClip() {
+            {"hat_generic_idle_north", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -9,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
                 }
             }},
-            {"mask_generic_idle_east", new FramesClip() {
+            {"mask_generic_idle_east", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -3,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -1,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
                 }
             }},
-            {"mask_generic_idle_south", new FramesClip() {
+            {"mask_generic_idle_south", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -3,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -1,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
                 }
             }},
-            {"mask_generic_idle_west", new FramesClip() {
+            {"mask_generic_idle_west", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -3,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -1,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
                 }
             }},
-            {"mask_generic_idle_north", new FramesClip() {
+            {"mask_generic_idle_north", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -3,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -1,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
                 }
             }},
-            {"armor_generic_attack_east", new FramesClip() {
+            {"armor_generic_attack_east", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ArmorFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = ArmorSourcer.GetInstance()
                     }
                 }
             }},
-            {"armor_generic_attack_south", new FramesClip() {
+            {"armor_generic_attack_south", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ArmorFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = ArmorSourcer.GetInstance()
                     }
                 }
             }},
-            {"armor_generic_attack_west", new FramesClip() {
+            {"armor_generic_attack_west", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ArmorFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = ArmorSourcer.GetInstance()
                     }
                 }
             }},
-            {"armor_generic_attack_north", new FramesClip() {
+            {"armor_generic_attack_north", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ArmorFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = ArmorSourcer.GetInstance()
                     }
                 }
             }},
-            {"hat_generic_attack_east", new FramesClip() {
+            {"hat_generic_attack_east", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
 },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
 },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
 },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
                 }
 }},
-            {"hat_generic_attack_south", new FramesClip()
+            {"hat_generic_attack_south", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
                 }
     }},
-            {"hat_generic_attack_west", new FramesClip()
+            {"hat_generic_attack_west", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
                 }
     }},
-            {"hat_generic_attack_north", new FramesClip()
+            {"hat_generic_attack_north", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
-                    new HatFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = HatSourcer.GetInstance(),
                     },
                 }
     }},
-            {"mask_generic_attack_east", new FramesClip() {
+            {"mask_generic_attack_east", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -3,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
                 }
             }},
-            {"mask_generic_attack_south", new FramesClip() {
+            {"mask_generic_attack_south", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -3,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
                 }
             }},
-            {"mask_generic_attack_west", new FramesClip() {
+            {"mask_generic_attack_west", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -3,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
                 }
             }},
-            {"mask_generic_attack_north", new FramesClip() {
+            {"mask_generic_attack_north", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -3,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
-                    new MaskFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
                         RelativeX = 0,
                         RelativeY = -4,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = MaskSourcer.GetInstance()
                     },
                 }
             }},
-            {"weapon_generic_attack_east", new FramesClip()
+            {"weapon_generic_attack_east", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 18,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = -0.78f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 19,
                         RelativeY = 21,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = -0.9f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 19,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = 0.12f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 18,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = 0.28f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     }
                 }
     }},
-            {"weapon_generic_attack_south", new FramesClip()
+            {"weapon_generic_attack_south", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 18,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = -1f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 19,
                         RelativeY = 21,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = -1.2f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 19,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = 0.62f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 18,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = 0.66f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     }
                 }
     }},
-            {"weapon_generic_attack_west", new FramesClip()
+            {"weapon_generic_attack_west", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 18,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         FlipVertically = true,
                         OriginOffsetY = 16,
                         Rotation = 0.78f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 19,
                         RelativeY = 21,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         FlipVertically = true,
                         OriginOffsetY = 16,
                         Rotation = 0.9f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 19,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         FlipVertically = true,
                         OriginOffsetY = 16,
                         Rotation = -0.12f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 18,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         FlipVertically = true,
                         OriginOffsetY = 16,
                         Rotation = -0.28f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     }
                 }
     }},
-            {"weapon_generic_attack_north", new FramesClip()
+            {"weapon_generic_attack_north", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 18,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = -1f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 19,
                         RelativeY = 21,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = -1.2f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 19,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = 0.62f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     },
-                    new WeaponFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 18,
                         RelativeY = 22,
-                        AbsoluteRotation = false,
+                        RelativeRotation = true,
                         OriginOffsetY = 16,
                         Rotation = 0.66f,
                         DestinationW = W,
                         DestinationH = W
                         },
+                        Sourcer = WeaponSourcer.GetInstance()
                     }
                 }
     }},
-            {"body_white_attack_east", new FramesClip()
+            {"body_white_attack_east", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 4*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 4*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 4*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 4*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
     }},
-            {"body_white_attack_south", new FramesClip()
+            {"body_white_attack_south", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 5*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 5*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 5*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 5*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
     }},
-            {"body_white_attack_west", new FramesClip()
+            {"body_white_attack_west", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 6*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 6*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 6*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 6*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
     }},
-            {"body_white_attack_north", new FramesClip()
+            {"body_white_attack_north", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 7*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 7*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 7*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 7*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
     }},
-            {"body_red_attack_east", new FramesClip()
+            {"body_red_attack_east", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 0*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 0*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 0*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 0*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
     }},
-            {"body_red_attack_south", new FramesClip()
+            {"body_red_attack_south", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 1*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 1*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 1*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 1*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
     }},
-            {"body_red_attack_west", new FramesClip()
+            {"body_red_attack_west", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 2*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 2*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 2*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 2*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
     }},
-            {"body_red_attack_north", new FramesClip()
+            {"body_red_attack_north", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 3*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 3*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 2*W,
                         SourceLeft = 3*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     },
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 1*W,
                         SourceLeft = 3*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
                     }
                 }
     }},
-            {"weapon-effect_basic-slash_attack_east", new FramesClip()
+            {"weapon-effect_basic-slash_attack_east", new Clip()
     {
         Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 0*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 0*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 16,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 0*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 0*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
                     }
                 }
             }},
-            {"weapon-effect_basic-slash_attack_south", new FramesClip() {
+            {"weapon-effect_basic-slash_attack_south", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 1*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 1*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 16,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 1*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 1*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
                     }
                 }
             }},
-            {"weapon-effect_basic-slash_attack_west", new FramesClip() {
+            {"weapon-effect_basic-slash_attack_west", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 2*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = 1,
                         DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 2*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform(){
 RelativeX = -16,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
 },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 2*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform()
                         {
                             RelativeX = 0,
@@ -1821,19 +1893,19 @@ SourceTop = 5*W,
                             DestinationW = 1,
                             DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 2*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
                     }
                 }
             }},
-            {"weapon-effect_basic-slash_attack_north", new FramesClip() {
+            {"weapon-effect_basic-slash_attack_north", new Clip() {
                 Frames = new AnimationFrame[]
                 {
-                    new ManualFrame() {
+                    new AnimationFrame() {
                         Transform = new FrameTransform()
                         {
                             RelativeX = 0,
@@ -1841,13 +1913,13 @@ SourceTop = 5*W,
                             DestinationW = 1,
                             DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 3*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform()
                         {
                             RelativeX = 0,
@@ -1855,13 +1927,13 @@ SourceTop = 5*W,
                             DestinationW = 1,
                             DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 3*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform()
                         {
                             RelativeX = 0,
@@ -1869,13 +1941,13 @@ SourceTop = 5*W,
                             DestinationW = W,
                             DestinationH = W
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 3*W,
                         SourceW = W,
-                        SourceH = W
+                        SourceH = W}
 }
-                    },new ManualFrame() {
+                    },new AnimationFrame() {
                         Transform = new FrameTransform()
                         {
                             RelativeX = 0,
@@ -1883,11 +1955,11 @@ SourceTop = 5*W,
                             DestinationW = 1,
                             DestinationH = 1,
                         },
-                        Source = new FrameSource(){
+                        Sourcer = new DirectSourcer() { Source = new FrameSource(){
 SourceTop = 5*W,
                         SourceLeft = 3*W,
                         SourceW = 1,
-                        SourceH = 1
+                        SourceH = 1}
 }
                     }
                 }
@@ -2074,14 +2146,12 @@ SourceTop = 5*W,
         public virtual void DrawCurrentFrame(Clip clip, int frameIndex, Dude owner, SpriteBatch sb, Texture2D sheet, int x, int y, float rotation)
         {
             var frame = clip.GetFrame(frameIndex);
-            if (frame == null)
-                return;
 
             var transform = frame.Transform;
-            var finalRotation = (transform.AbsoluteRotation ? 0f : rotation) + transform.Rotation;
+            var finalRotation = (transform.RelativeRotation ? rotation : 0f ) + transform.Rotation;
             var spriteEffectFlags = (transform.FlipHorizontally ? SpriteEffects.FlipHorizontally : SpriteEffects.None) | (transform.FlipVertically ? SpriteEffects.FlipVertically : SpriteEffects.None);
 
-            var source = frame.GetSource(owner);
+            var source = frame.Sourcer.GetSource(owner);
             sb.Draw(sheet, new Rectangle(x + transform.RelativeX, y + transform.RelativeY, transform.DestinationW, transform.DestinationW), new Rectangle(source.SourceLeft, source.SourceTop, source.SourceW, source.SourceH), Color.White, finalRotation, new Vector2(transform.OriginOffsetX, transform.OriginOffsetY), spriteEffectFlags, 0);
         }
 
