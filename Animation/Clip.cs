@@ -1,10 +1,12 @@
-﻿namespace DungeonPrototype.Animation
+﻿using System;
+
+namespace DungeonPrototype.Animation
 {
     internal abstract class Clip
     {
         public bool Loop { get; set; } = true;
-        
-        protected abstract int GetLastFrame();
+
+        public abstract int GetLastFrame();
         protected abstract int NextFrameIndex(int index);
 
         public int Tick(int index)
@@ -30,7 +32,7 @@
             return Frames[index % Frames.Length];
         }
 
-        protected override int GetLastFrame()
+        public override int GetLastFrame()
         {
             return Frames.Length - 1;
         }
@@ -56,7 +58,7 @@
                 };
 
                 newFrame.Source.SourceLeft += (index % horizontalFrames) * newFrame.Source.SourceW;
-                newFrame.Source.SourceTop += (index % verticalFrames) * newFrame.Source.SourceH;
+                newFrame.Source.SourceTop += ((index/horizontalFrames) % verticalFrames) * newFrame.Source.SourceH;
 
                 Frames[index] = newFrame;
             }
