@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DungeonPrototype.Animation
+﻿namespace DungeonPrototype.Animation
 {
     internal abstract class Clip
     {

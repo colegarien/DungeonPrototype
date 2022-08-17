@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-
-namespace DungeonPrototype.Animation
+﻿namespace DungeonPrototype.Animation
 {
     class FrameTransform
     {
@@ -70,6 +68,34 @@ namespace DungeonPrototype.Animation
                         SourceW = 32,
                         SourceH = 32
                     };
+                case "cowboy":
+                    return new FrameSource()
+                    {
+                        SourceLeft = owner.Direction * 32,
+                        SourceTop = 7 * 32,
+                        SourceW = 32,
+                        SourceH = 32
+                    };
+                default:
+                    return new FrameSource();
+            }
+        }
+    }
+
+    class MaskFrame : AnimationFrame
+    {
+        public override FrameSource GetSource(Dude owner)
+        {
+            switch (owner.mask)
+            {
+                case "sunglasses":
+                    return new FrameSource()
+                    {
+                        SourceLeft = owner.Direction * 32,
+                        SourceTop = 9 * 32,
+                        SourceW = 32,
+                        SourceH = 32
+                    };
                 default:
                     return new FrameSource();
             }
@@ -115,6 +141,14 @@ namespace DungeonPrototype.Animation
                     {
                         SourceLeft = owner.Direction * 32,
                         SourceTop = 6 * 32,
+                        SourceW = 32,
+                        SourceH = 32
+                    };
+                case "biker":
+                    return new FrameSource()
+                    {
+                        SourceLeft = owner.Direction * 32,
+                        SourceTop = 8 * 32,
                         SourceW = 32,
                         SourceH = 32
                     };

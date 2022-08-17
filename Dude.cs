@@ -67,161 +67,70 @@ namespace DungeonPrototype
         public const int W = 32;
         public static Dictionary<string, Clip> genericClipMap = new Dictionary<string, Clip>()
         {
-            {"body_white_idle_east", new LinearClip(new ManualFrame() {
+            {"body_white_idle_east", new LinearClip(
+                new ManualFrame() {
                     Transform = new FrameTransform(){
-RelativeX = 0,
+                        RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
                     },
                     Source = new FrameSource(){
-SourceTop = 1*W,
-                    SourceLeft = 4*W,
-                    SourceW = W,
-                    SourceH = W
-}
-               }, 1, 3)},
-            {"body_white_idle_south", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        Transform = new FrameTransform(){
-RelativeX = 0,
+                        SourceTop = 1*W,
+                        SourceLeft = 4*W,
+                        SourceW = W,
+                        SourceH = W
+                    }
+                }, 1, 3)
+            },
+            {"body_white_idle_south", new LinearClip(
+                new ManualFrame() {
+                    Transform = new FrameTransform(){
+                        RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
-},
-                        Source = new FrameSource(){
-SourceTop = 1*W,
+                    },
+                    Source = new FrameSource(){
+                        SourceTop = 1*W,
                         SourceLeft = 5*W,
                         SourceW = W,
                         SourceH = W
-}
-                    },
-                    new ManualFrame() {
-Transform = new FrameTransform(){
-RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W
-},
-                        Source = new FrameSource(){
-SourceTop = 2*W,
-                        SourceLeft = 5*W,
-                        SourceW = W,
-                        SourceH = W
-}
-                    },
-                    new ManualFrame() {
-Transform = new FrameTransform(){
-RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W
-},
-                        Source = new FrameSource(){
-SourceTop = 3*W,
-                        SourceLeft = 5*W,
-                        SourceW = W,
-                        SourceH = W
-}
                     }
-                }
-            }},
-            {"body_white_idle_west", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        Transform = new FrameTransform(){
-RelativeX = 0,
+                }, 1, 3)
+            },
+            {"body_white_idle_west", new LinearClip(
+                new ManualFrame() {
+                    Transform = new FrameTransform(){
+                        RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
-},
-                        Source = new FrameSource(){
-SourceTop = 1*W,
+                    },
+                    Source = new FrameSource(){
+                        SourceTop = 1*W,
                         SourceLeft = 6*W,
                         SourceW = W,
                         SourceH = W
-}
-                    },
-                    new ManualFrame() {
-                        Transform = new FrameTransform(){
-RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W
-},
-                        Source = new FrameSource(){
-SourceTop = 2*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
-}
-                    },
-                    new ManualFrame() {
-                        Transform = new FrameTransform(){
-RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W
-},
-                        Source = new FrameSource(){
-SourceTop = 3*W,
-                        SourceLeft = 6*W,
-                        SourceW = W,
-                        SourceH = W
-}
                     }
-                }
-            }},
-            {"body_white_idle_north", new FramesClip() {
-                Frames = new AnimationFrame[]
-                {
-                    new ManualFrame() {
-                        Transform = new FrameTransform(){
-RelativeX = 0,
+                }, 1, 3)
+            },
+            {"body_white_idle_north", new LinearClip(
+                new ManualFrame() {
+                    Transform = new FrameTransform(){
+                        RelativeX = 0,
                         RelativeY = 0,
                         DestinationW = W,
                         DestinationH = W
-},
-                        Source = new FrameSource(){
-SourceTop = 1*W,
-                        SourceLeft = 7*W,
-                        SourceW = W,
-                        SourceH = W
-}
                     },
-                    new ManualFrame() {
-                        Transform = new FrameTransform(){
-RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W
-},
-                        Source = new FrameSource(){
-SourceTop = 2*W,
+                    Source = new FrameSource(){
+                        SourceTop = 1*W,
                         SourceLeft = 7*W,
                         SourceW = W,
                         SourceH = W
-}
-                    },
-                    new ManualFrame() {
-                        Transform = new FrameTransform(){
-RelativeX = 0,
-                        RelativeY = 0,
-                        DestinationW = W,
-                        DestinationH = W
-},
-                        Source = new FrameSource(){
-SourceTop = 3*W,
-                        SourceLeft = 7*W,
-                        SourceW = W,
-                        SourceH = W
-}
                     }
-                }
-            }},
+                }, 1, 3)
+            },
             {"body_red_idle_east", new FramesClip() {
                 Frames = new AnimationFrame[]
                 {
@@ -467,7 +376,7 @@ RelativeX = 0,
                 {
                     new HatFrame() {
                         Transform = new FrameTransform(){
-RelativeX = 0,
+                        RelativeX = 0,
                         RelativeY = -12,
                         DestinationW = W,
                         DestinationH = W
@@ -475,7 +384,7 @@ RelativeX = 0,
                     },
                     new HatFrame() {
                         Transform = new FrameTransform(){
-RelativeX = 0,
+                        RelativeX = 0,
                         RelativeY = -11,
                         DestinationW = W,
                         DestinationH = W
@@ -483,7 +392,7 @@ RelativeX = 0,
                     },
                     new HatFrame() {
                         Transform = new FrameTransform(){
-RelativeX = 0,
+                        RelativeX = 0,
                         RelativeY = -9,
                         DestinationW = W,
                         DestinationH = W
@@ -572,6 +481,122 @@ RelativeX = 0,
                         Transform = new FrameTransform(){
 RelativeX = 0,
                         RelativeY = -9,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                }
+            }},
+            {"mask_generic_idle_east", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -3,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -1,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                }
+            }},
+            {"mask_generic_idle_south", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+RelativeX = 0,
+                        RelativeY = -3,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+RelativeX = 0,
+                        RelativeY = -1,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                }
+            }},
+            {"mask_generic_idle_west", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+RelativeX = 0,
+                        RelativeY = -3,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+RelativeX = 0,
+                        RelativeY = -1,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                }
+            }},
+            {"mask_generic_idle_north", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+RelativeX = 0,
+                        RelativeY = -3,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+RelativeX = 0,
+                        RelativeY = -1,
                         DestinationW = W,
                         DestinationH = W
                         },
@@ -667,8 +692,7 @@ RelativeX = 0,
                     },
                 }
 }},
-            {
-    "hat_generic_attack_south", new FramesClip()
+            {"hat_generic_attack_south", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -706,8 +730,7 @@ RelativeX = 0,
                     },
                 }
     }},
-            {
-    "hat_generic_attack_west", new FramesClip()
+            {"hat_generic_attack_west", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -745,8 +768,7 @@ RelativeX = 0,
                     },
                 }
     }},
-            {
-    "hat_generic_attack_north", new FramesClip()
+            {"hat_generic_attack_north", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -784,8 +806,155 @@ RelativeX = 0,
                     },
                 }
     }},
-            {
-    "weapon_generic_attack_east", new FramesClip()
+            {"mask_generic_attack_east", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -3,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                }
+            }},
+            {"mask_generic_attack_south", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -3,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                }
+            }},
+            {"mask_generic_attack_west", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -3,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                }
+            }},
+            {"mask_generic_attack_north", new FramesClip() {
+                Frames = new AnimationFrame[]
+                {
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -3,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                    new MaskFrame() {
+                        Transform = new FrameTransform(){
+                        RelativeX = 0,
+                        RelativeY = -4,
+                        DestinationW = W,
+                        DestinationH = W
+                        },
+                    },
+                }
+            }},
+            {"weapon_generic_attack_east", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -835,8 +1004,7 @@ RelativeX = 18,
                     }
                 }
     }},
-            {
-    "weapon_generic_attack_south", new FramesClip()
+            {"weapon_generic_attack_south", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -886,8 +1054,7 @@ RelativeX = 18,
                     }
                 }
     }},
-            {
-    "weapon_generic_attack_west", new FramesClip()
+            {"weapon_generic_attack_west", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -941,8 +1108,7 @@ RelativeX = 18,
                     }
                 }
     }},
-            {
-    "weapon_generic_attack_north", new FramesClip()
+            {"weapon_generic_attack_north", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -992,8 +1158,7 @@ RelativeX = 18,
                     }
                 }
     }},
-            {
-    "body_white_attack_east", new FramesClip()
+            {"body_white_attack_east", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -1055,8 +1220,7 @@ SourceTop = 1*W,
                     }
                 }
     }},
-            {
-    "body_white_attack_south", new FramesClip()
+            {"body_white_attack_south", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -1118,8 +1282,7 @@ SourceTop = 1*W,
                     }
                 }
     }},
-            {
-    "body_white_attack_west", new FramesClip()
+            {"body_white_attack_west", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -1181,8 +1344,7 @@ SourceTop = 1*W,
                     }
                 }
     }},
-            {
-    "body_white_attack_north", new FramesClip()
+            {"body_white_attack_north", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -1244,8 +1406,7 @@ SourceTop = 1*W,
                     }
                 }
     }},
-            {
-    "body_red_attack_east", new FramesClip()
+            {"body_red_attack_east", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -1307,8 +1468,7 @@ SourceTop = 1*W,
                     }
                 }
     }},
-            {
-    "body_red_attack_south", new FramesClip()
+            {"body_red_attack_south", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -1370,8 +1530,7 @@ SourceTop = 1*W,
                     }
                 }
     }},
-            {
-    "body_red_attack_west", new FramesClip()
+            {"body_red_attack_west", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -1433,8 +1592,7 @@ SourceTop = 1*W,
                     }
                 }
     }},
-            {
-    "body_red_attack_north", new FramesClip()
+            {"body_red_attack_north", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -1496,8 +1654,7 @@ SourceTop = 1*W,
                     }
                 }
     }},
-            {
-    "weapon-effect_basic-slash_attack_east", new FramesClip()
+            {"weapon-effect_basic-slash_attack_east", new FramesClip()
     {
         Frames = new AnimationFrame[]
                 {
@@ -1794,6 +1951,14 @@ SourceTop = 5*W,
                     frameIndexes[animationArmorKey] = genericClipMap[animationArmorKey].Tick(frameIndexes.GetValueOrDefault(animationArmorKey, 0));
                 }
 
+                var animationMaskKey = $"mask_{owner.mask}_{state}_{direction}";
+                if (!genericClipMap.ContainsKey(animationMaskKey) && owner.mask != "")
+                    animationMaskKey = $"mask_generic_{state}_{direction}";
+                if (genericClipMap.ContainsKey(animationMaskKey))
+                {
+                    frameIndexes[animationMaskKey] = genericClipMap[animationMaskKey].Tick(frameIndexes.GetValueOrDefault(animationMaskKey, 0));
+                }
+
                 var animationHatKey = $"hat_{owner.hat}_{state}_{direction}";
                 if (!genericClipMap.ContainsKey(animationHatKey) && owner.hat != "")
                     animationHatKey = $"hat_generic_{state}_{direction}";
@@ -1874,6 +2039,14 @@ SourceTop = 5*W,
                 DrawCurrentFrame(genericClipMap[animationArmorKey], frameIndexes.GetValueOrDefault(animationArmorKey, 0), owner, sb, sheet, x, y, rotation);
             }
 
+            var animationMaskKey = $"mask_{owner.mask}_{state}_{direction}";
+            if (!genericClipMap.ContainsKey(animationMaskKey) && owner.mask != "")
+                animationMaskKey = $"mask_generic_{state}_{direction}";
+            if (genericClipMap.ContainsKey(animationMaskKey))
+            {
+                DrawCurrentFrame(genericClipMap[animationMaskKey], frameIndexes.GetValueOrDefault(animationMaskKey, 0), owner, sb, sheet, x, y, rotation);
+            }
+
             var animationHatKey = $"hat_{owner.hat}_{state}_{direction}";
             if (!genericClipMap.ContainsKey(animationHatKey) && owner.hat != "")
                 animationHatKey = $"hat_generic_{state}_{direction}";
@@ -1922,8 +2095,9 @@ SourceTop = 5*W,
         public Input input;
         public Animator animator;
 
-        /**
+        /** TODO this!?
          * 1. Head - Always in front of body
+         * 1* Mask - Always in front of body, behind head-wear
          * 2. Body - core character 'skin'
          * 3. Armor - Always in front of body
          * 4. Weapon - On top when right or down, behind when left or up
@@ -1935,6 +2109,7 @@ SourceTop = 5*W,
         public string armor = "cyan";
         public string weapon = "pink-sword";
         public string weapon_effect = "basic-slash";
+        public string mask = "";
 
         // right, down, left, up == 0, 1, 2, 3
         public int Direction { get; set; } = 0;

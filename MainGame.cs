@@ -40,7 +40,7 @@ namespace DungeonPrototype
 
             dudes = new List<Dude>() {
                 new Dude(new Animator(),new PlayerInput(), 100, 100),
-                new Dude(new Animator(), new MonsterInput(), 180, 100){body="red",hat="",armor="",weapon="grey-dagger"}
+                new Dude(new Animator(), new MonsterInput(), 180, 100){body="red",hat="cowboy",armor="biker",weapon="grey-dagger",mask="sunglasses"}
             };
 
             base.Initialize();
