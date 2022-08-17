@@ -1,4 +1,6 @@
-﻿namespace DungeonPrototype.Animation
+﻿using System;
+
+namespace DungeonPrototype.Animation
 {
     struct Clip
     {

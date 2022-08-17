@@ -1967,6 +1967,7 @@ SourceTop = 5*W,
         };
         public static float perFrameTime = 100f; // ~10fps
 
+        // TODO make state-machiney parts
         public float curFrameTime = 0;
         public string state = "idle";
         public Dictionary<string, int> frameIndexes = new Dictionary<string, int>();
